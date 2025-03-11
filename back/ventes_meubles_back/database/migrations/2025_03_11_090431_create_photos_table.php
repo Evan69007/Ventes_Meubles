@@ -17,7 +17,7 @@ return new class extends Migration
 				table: 'meubles', indexName: 'id'
 			);
 			$table->enum('type', ['principale', 'secondaire']);
-			$table->string('url', length: 50);
+			$table->text('url');
 			$table->timestamps();
 		});
     }
