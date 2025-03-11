@@ -4,25 +4,35 @@ namespace Database\Seeders;
 
 use App\Models\Meuble;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class MeubleSeeder extends Seeder
 {
     public function run(): void
     {
 
-        Meuble::factory()->create([
-            'nom' => 'Buffet Louis XV',
-            'type' => 'Buffet',
-            'couleurs' => "Bois naturel, Marron foncé",
-            'matieres' => "Chêne massif",
-			'hauteur' => 120,
-			'largeur' => 180,
-			'profondeur' => 50,
-			'prix_ttc' => 1200.0,
-			'description' => "Magnifique buffet Louis XV en chêne massif, sculpté à la main.",
-			'date_mise_en_ligne' => "2025-03-10",
-            'etat' => 'parfait',
-            'statut' => 'dispo',
-        ]);
-    }
+        $jsonData = file_get_contents(database_path('data/meubles_anciens.json'));
+        $meubles = json_decode($jsonData, true)['meubles'];
+
+        foreach ($meubles as $meuble) {
+            // Insert main furniture record
+            $meubleId = DB::table('meubles')->insertGetId([
+                'nom' => $meuble['nom'],
+                'type' => $meuble['type'],
+                'hauteur' => $meuble['dimension']['hauteur'],
+                'largeur' => $meuble['dimension']['largeur'],
+                'profondeur' => $meuble['dimension']['profondeur'],
+                'prix_ttc' => $meuble['prix_ttc'],
+                'statut' => $meuble['statut'],
+                'description' => $meuble['description'],
+                'etat' => $meuble['etat'],
+                'date_mise_en_ligne' => $meuble['date_mise_en_ligne'],
+				'couleurs' => join(", ", $meuble['couleurs']),
+				'matieres' => join(", ", $meuble['matieres']),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+    	}
+	}
 }
