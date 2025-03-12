@@ -1,15 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-<<<<<<< HEAD
+/*
 @import './base.css';
-=======
+
 body {
   font-family: 'Poppins', sans-serif;
 }
->>>>>>> 4b02514570f348cf7f0d40c740530e443ac169fb
-
+*/
 /* #app {
   max-width: 1280px;
   margin: 0 auto;
