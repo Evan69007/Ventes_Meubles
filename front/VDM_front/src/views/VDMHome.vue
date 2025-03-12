@@ -1,26 +1,13 @@
+<script setup>
+import cardsContainer from '@/components/cardsContainer.vue' // Import du composant contenant les produits
+</script>
+
 <template>
   <div>
-    <h1>Home</h1>
-    <div v-if="meubles_anciens.length">
-      <div v-for="(meuble, index) in meubles_anciens" :key="index">
-        <p>Nom {{ meuble.nom }}</p>
-
-      </div>
-    </div>
+    <h1>Bienvenue sur notre boutique</h1>
+    <cardsContainer />
+    <!-- Affiche la liste des produits -->
   </div>
 </template>
-<!-- Crée un dossier SERVICE qui contiendra les fetch -->
-<script>
-export default {
-  data() {
-    return {
-      meubles_anciens: [],
-    };
-  },
-  async mounted() {
-    const response = await fetch("/meubles_anciens.json");
-    const data = await response.json();
-    this.meubles_anciens = data.meubles;
-  },
-};
-</script>
+
+
