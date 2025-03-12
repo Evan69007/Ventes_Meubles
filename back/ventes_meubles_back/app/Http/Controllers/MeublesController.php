@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Meuble;
 use Carbon\Carbon;
+use App\Models\Photo;
 
 class MeublesController extends Controller
 {
@@ -89,6 +90,10 @@ class MeublesController extends Controller
     public function destroy(string $id)
     {
         if(Meuble::where('id', $id)->exists()){
+            $photos = Photo::where('meubles_id', $id)->get();
+            foreach ($photos as $photo) {
+                $photo->delete();
+            }
             $meuble = Meuble::find($id);
             $meuble->delete();
             return response()->json(['message' => 'Meuble supprimé']);
