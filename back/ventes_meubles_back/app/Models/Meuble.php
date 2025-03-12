@@ -20,9 +20,18 @@ class Meuble extends Model
 	public function getPhotosMeubleAttribute()
     {
         $photos_meuble = [];
+		$photos_secondaires = [];
         foreach ($this->photos as $photo) {
-            $photos_meuble[$photo->type] = $photo->url;
+			if($photo->type == 'principale')
+			{
+				$photos_meuble[$photo->type] = $photo->url;
+			}
+			elseif ($photo->type == 'secondaire')
+			{
+				$photos_secondaires[] = $photo->url;
+			}
         }
+		$photos_meuble['secondaire'] = $photos_secondaires;
         return $photos_meuble;
     }
 
