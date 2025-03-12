@@ -1,18 +1,27 @@
+<!-- App.vue = est le composant principal, il affiche les pages en fonction des routes définies. Composant racine de l'application -->
+
 <script setup>
-//import { RouterLink, RouterView } from 'vue-router'
-import navBar from './components/NavBar/VDMNavBar.vue'
+import { RouterView } from 'vue-router' // Permet d'afficher la page actuelle
 </script>
 
 <template>
-  <header>
-    <navBar />
-    <!-- <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-    </nav> -->
-  </header>
-
-  <RouterView />
+  <div class="app">
+    <main class="container">
+      <RouterView />
+      <!-- Affiche la page en fonction de la route définie dans index.js -->
+    </main>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Fait en sorte que l’application prenne toute la hauteur */
+}
+
+.container {
+  flex: 1;
+  padding: 20px;
+}
+</style>
