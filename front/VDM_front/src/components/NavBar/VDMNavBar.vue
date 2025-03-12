@@ -1,31 +1,44 @@
 <script setup>
-import MenuButton from './VDMMenuButton.vue'
+import { ref } from 'vue'
+import VDMMenu from '../Menu/VDMMenu.vue'
+import VDMMenuButton from './VDMMenuButton.vue'
 import Logo from './VDMLogo.vue'
 import Icons from './VDMIcons.vue'
+
+const isMenuOpen = ref(false)
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value
+}
 </script>
 
 <template>
   <nav class="navBar">
-    <div class="item"><MenuButton /></div>
+    <div class="item">
+      <VDMMenuButton :isOpen="isMenuOpen" @click="toggleMenu" />
+    </div>
     <div class="item"><Logo /></div>
     <div class="item"><Icons /></div>
   </nav>
+
+  <!-- menu en dessous de la navbar -->
+  <VDMMenu v-if="isMenuOpen" />
 </template>
 
 <style scoped>
 .navBar {
   display: flex;
-  width: 100vw; /* S'assurer qu'elle prend toute la largeur */
+  width: 100vw;
   align-items: center;
   justify-content: space-between;
   font-family: 'Koulen', sans-serif;
   background-color: white;
   padding: 1rem 2rem;
-  box-sizing: border-box; /* Empêcher le padding d'augmenter la largeur */
-  position: fixed; /* S'assurer qu'elle reste en haut */
+  box-sizing: border-box;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000; /* S'assurer qu'elle passe au-dessus du reste */
+  z-index: 1000;
 }
 
 .item {
