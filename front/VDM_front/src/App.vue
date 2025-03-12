@@ -2,10 +2,12 @@
 
 <script setup>
 import { RouterView } from 'vue-router' // Permet d'afficher la page actuelle
+import NavBar from './components/NavBar/VDMNavBar.vue'
 </script>
 
 <template>
   <div class="app">
+    <header><NavBar /></header>
     <main class="container">
       <RouterView />
       <!-- Affiche la page en fonction de la route définie dans index.js -->
