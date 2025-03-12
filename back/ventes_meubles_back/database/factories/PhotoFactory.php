@@ -18,7 +18,7 @@ class PhotoFactory extends Factory
     public function definition(): array
     {
         return [
-            'meuble_id' => $this->faker->numberBetween(1, 999),
+            'meubles_id' => $this->faker->numberBetween(1, 999),
 			'type' => $this->faker->randomElement(['principale', 'secondaire']),
 			'url' => $this->faker->Str::random(50),
         ];

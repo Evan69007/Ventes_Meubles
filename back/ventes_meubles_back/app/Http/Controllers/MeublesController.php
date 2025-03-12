@@ -12,10 +12,12 @@ class MeublesController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $meubles = Meuble::all();
-        return response()->json($meubles);
-    }
+	{
+		// Fetch all Meubles with their photos
+		$meubles = Meuble::with('photos')->get();
+
+		return response()->json($meubles);
+	}
 
     /**
      * Store a newly created resource in storage.
@@ -46,7 +48,7 @@ class MeublesController extends Controller
      */
     public function show(string $id)
     {
-       $meuble = Meuble::find($id);
+       $meuble = Meuble::with('photos')->findOrFail($id);
        if(!empty($meuble)){
         return response()->json($meuble);}
        else{
