@@ -1,14 +1,16 @@
-import './assets/main.css'
+//main.js: initialise l’application Vue, charge le routeur (point d'entrée de l'application)
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import './assets/main.css' // Import du fichier CSS global pour les styles
 
-import App from './App.vue'
-import router from './router'
+import { createApp } from 'vue' // Import de Vue
+import { createPinia } from 'pinia' // Import de Pinia (gestion d’état)
 
-const app = createApp(App)
+import App from './App.vue' // Import du composant racine de l’application
+import router from './router' // Import du routeur (fichier index.js)
 
-app.use(createPinia())
-app.use(router)
+const app = createApp(App) // Création de l’application Vue
 
-app.mount('#app')
+app.use(createPinia()) // Utilisation de Pinia (pour gérer l'état global)
+app.use(router) // Utilisation du routeur pour la navigation
+
+app.mount('#app') // Monte l’application dans l’élément <div id="app"> du HTML
