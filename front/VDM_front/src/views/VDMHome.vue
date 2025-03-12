@@ -3,6 +3,7 @@
 <script setup>
 import cardsContainer from '@/components/CardMeuble/cardsContainer.vue' // Import du composant contenant les produits
 import Hero from '@/components/VDMHero.vue' // Import du composant contenant l'image Background
+import FooterComponent from '@/components/FooterComponent.vue'
 </script>
 
 <template>
@@ -13,6 +14,15 @@ import Hero from '@/components/VDMHero.vue' // Import du composant contenant l'i
       <cardsContainer />
       <!-- Affiche la liste des produits -->
     </main>
+    <footer>
+      <div>
+        <FooterComponent />
+        <!-- <nav>
+          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/about">About</RouterLink>
+        </nav> -->
+      </div>
+    </footer>
   </div>
 </template>
 
