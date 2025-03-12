@@ -1,7 +1,7 @@
 <!-- page d’accueil  -->
 
 <script setup>
-import cardsContainer from '@/components/cardsContainer.vue' // Import du composant contenant les produits
+import cardsContainer from '@/components/CardMeuble/cardsContainer.vue' // Import du composant contenant les produits
 </script>
 
 <template>

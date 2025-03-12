@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import cardsProduit from '@/components/cardsProduit.vue' // Import du composant carte produit
+import cardsProduit from '@/components/CardMeuble/cardsProduit.vue' // Import du composant carte produit
 
 export default {
   components: { cardsProduit },

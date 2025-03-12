@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import ImageProduit from '@/components/ImageProduit.vue'
-import NomProduit from '@/components/NomProduit.vue'
-import BoutonAjouterPanier from '@/components/BoutonAjoutPanier.vue'
+import ImageProduit from '@/components/CardMeuble/ImageProduit.vue'
+import NomProduit from '@/components/CardMeuble/NomProduit.vue'
+import BoutonAjouterPanier from '@/components/CardMeuble/BoutonAjoutPanier.vue'
 
 export default {
   components: {
