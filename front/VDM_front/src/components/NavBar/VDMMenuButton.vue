@@ -1,15 +1,22 @@
 <script setup>
 import ArrowIcon from '../icons/IconArrow.vue'
+import ArrowIconUp from '../icons/IconArrowUp.vue'
+
+// eslint-disable-next-line no-unused-vars
+const props = defineProps({
+  isOpen: Boolean,
+})
 </script>
 
 <template>
-  <div class="menu">
-    <button><ArrowIcon /> MENU</button>
-  </div>
+  <button class="menu-button">
+    <component :is="isOpen ? ArrowIconUp : ArrowIcon" />
+    MENU
+  </button>
 </template>
 
 <style scoped>
-button {
+.menu-button {
   font-family: 'Koulen', sans-serif;
   font-weight: bold;
   text-transform: uppercase;
@@ -20,9 +27,12 @@ button {
   cursor: pointer;
   padding: 0;
   outline: none;
-  align-content: center;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-button:hover {
+
+.menu-button:hover {
   opacity: 0.7;
 }
 </style>
