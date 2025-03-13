@@ -17,6 +17,11 @@ class Meuble extends Model
         return $this->hasMany(Photo::class, 'meubles_id');
     }
 
+	public function panier(): HasMany
+    {
+        return $this->hasMany(Panier::class, 'meubles_id');
+    }
+
 	public function getPhotosMeubleAttribute()
     {
         $photos_meuble = [];
@@ -51,6 +56,7 @@ class Meuble extends Model
 		'hauteur',
 		'largeur',
 		'profondeur',
+		'quantite',
 		'prix_ttc',
 		'status',
 		'description',

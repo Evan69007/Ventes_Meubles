@@ -20,7 +20,7 @@ return new class extends Migration
 			$table->integer('hauteur');
 			$table->integer('largeur');
 			$table->integer('profondeur');
-			// $table->integer('quantite');
+			$table->integer('quantite');
 			$table->decimal('prix_ttc');
 			$table->enum('statut', ['dispo', 'réservé', 'vendu']);
 			$table->text('description');

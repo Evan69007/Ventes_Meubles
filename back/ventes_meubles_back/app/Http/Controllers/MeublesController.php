@@ -33,6 +33,7 @@ class MeublesController extends Controller
        $meuble->hauteur = $request->hauteur;
        $meuble->largeur = $request->largeur;
        $meuble->profondeur = $request->profondeur;
+	   $meubles->quantite = $request->quantite;
        $meuble->prix_ttc = $request->prix_ttc;
        $meuble->statut = $request->statut;
        $meuble->description = $request->description;
@@ -56,7 +57,7 @@ class MeublesController extends Controller
         return response()->json(['message' => 'Meuble introuvable'],404);
        }
     }
-
+	
     /**
      * Update the specified resource in storage.
      */
@@ -71,6 +72,7 @@ class MeublesController extends Controller
             $meuble->hauteur = $request->hauteur;
             $meuble->largeur = $request->largeur;
             $meuble->profondeur = $request->profondeur;
+			$meuble->quantite = $request->quantite;
             $meuble->prix_ttc = $request->prix_ttc;
             $meuble->statut = $request->statut;
             $meuble->description = $request->description;
@@ -79,9 +81,8 @@ class MeublesController extends Controller
             $meuble->save();
             return response()->json($meuble);
         }else{
-            return response()->json(['message' => 'Meuble introuvable'],404);
+            return response()->json(['message' => 'Panier introuvable'],404);
         }
-        
     }
 
     /**
