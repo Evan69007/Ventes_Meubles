@@ -23,7 +23,7 @@ export default {
   },
   async mounted() {
     try {
-      const response = await fetch('/meubles_anciens.json') // JSON depuis public
+      const response = await fetch('http://localhost:8000/api/meubles')
       this.produits = await response.json()
     } catch (error) {
       console.error('Erreur de chargement :', error)
