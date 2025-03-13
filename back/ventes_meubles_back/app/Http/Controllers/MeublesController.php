@@ -33,7 +33,7 @@ class MeublesController extends Controller
        $meuble->hauteur = $request->hauteur;
        $meuble->largeur = $request->largeur;
        $meuble->profondeur = $request->profondeur;
-	   $meubles->quantite = $request->quantite;
+	   $meuble->quantite = $request->quantite;
        $meuble->prix_ttc = $request->prix_ttc;
        $meuble->statut = $request->statut;
        $meuble->description = $request->description;
