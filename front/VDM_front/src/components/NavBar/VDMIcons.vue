@@ -24,12 +24,15 @@ button {
   background: none;
   border: none;
   color: black;
-  font-size: xx-large;
+  font-size: x-large;
   cursor: pointer;
   padding: 0;
   outline: none;
-  align-content: center;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
+
 button:hover {
   opacity: 0.7;
 }
