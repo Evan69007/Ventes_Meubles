@@ -1,7 +1,7 @@
 <script setup>
 import cardsContainer from '@/components/CardMeuble/cardsContainer.vue' // Import du composant contenant les produits
 import Hero from '@/components/VDMHero.vue' // Import du composant contenant l'image Background
-import FooterComponent from '@/components/FooterComponent.vue'
+import FooterComponent from '@/components/Footer/FooterComponent.vue'
 </script>
 
 <template>
@@ -23,5 +23,3 @@ import FooterComponent from '@/components/FooterComponent.vue'
     </footer>
   </div>
 </template>
-
-

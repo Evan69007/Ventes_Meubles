@@ -7,8 +7,8 @@
       <DetailName :nom="produit.nom" />
       <DetailType :type="produit.type" />
       <DetailDescription :description="produit.description" />
-      <DetailColors :couleurs="produit.couleurs" />
-      <DetailMaterials :matieres="produit.matieres" />
+      <div>Couleurs : <DetailColors :couleurs="produit.couleurs" /></div>
+      <div>Matériaux : <DetailMaterials :matieres="produit.matieres" /></div>
       <DetailDimensions
         :hauteur="produit.hauteur"
         :largeur="produit.largeur"
@@ -50,17 +50,15 @@ export default {
   data() {
     return {
       produit: null,
-    };
+    }
   },
   async mounted() {
-    const response = await fetch("/meubles_anciens.json");
-    const data = await response.json();
-    this.produit = data.find((item) => item.id == this.$route.params.id);
+    const response = await fetch('/meubles_anciens.json')
+    const data = await response.json()
+    this.produit = data.find((item) => item.id == this.$route.params.id)
   },
-};
+}
 </script>
-
-
 
 <style scoped>
 /* Conteneur principal 2 colonnes */
@@ -98,4 +96,3 @@ export default {
   }
 }
 </style>
-

@@ -1,5 +1,5 @@
 <template>
-  <p>Dimensions : {{ hauteur }}cm x {{ largeur }}cm x {{ profondeur }}cm</p>
+  <p>{{ hauteur }}cm x {{ largeur }}cm x {{ profondeur }}cm</p>
 </template>
 
 <script>
@@ -9,5 +9,5 @@ export default {
     largeur: { type: Number, required: true },
     profondeur: { type: Number, required: true },
   },
-};
+}
 </script>

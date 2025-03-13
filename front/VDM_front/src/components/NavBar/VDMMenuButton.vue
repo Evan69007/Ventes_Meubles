@@ -23,7 +23,7 @@ const props = defineProps({
   background: none;
   border: none;
   color: black;
-  font-size: xx-large;
+  font-size: x-large;
   cursor: pointer;
   padding: 0;
   outline: none;
