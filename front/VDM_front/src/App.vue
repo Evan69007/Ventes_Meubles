@@ -5,10 +5,12 @@ import NavBar from './components/NavBar/VDMNavBar.vue'
 <template>
   <RouterView />
   <div class="app">
-    <header><NavBar /></header>
-    <main class="container">
-      <!-- Affiche la page en fonction de la route définie dans index.js -->
-    </main>
+    <div class="pt-16">
+      <header><NavBar /></header>
+      <main class="container">
+        <!-- Affiche la page en fonction de la route définie dans index.js -->
+      </main>
+    </div>
   </div>
 </template>
 
@@ -24,5 +26,3 @@ import NavBar from './components/NavBar/VDMNavBar.vue'
   padding: 20px;
 }
 </style>
-
-

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import cardsProduit from '@/components/CardMeuble/cardsProduit.vue'; // Composant carte produit
+import cardsProduit from '@/components/CardMeuble/cardsProduit.vue' // Composant carte produit
 
 export default {
   components: {
@@ -19,17 +19,15 @@ export default {
   data() {
     return {
       produits: [],
-    };
+    }
   },
   async mounted() {
     try {
-      const response = await fetch("/meubles_anciens.json"); // JSON depuis public
-      this.produits = await response.json();
+      const response = await fetch('/meubles_anciens.json') // JSON depuis public
+      this.produits = await response.json()
     } catch (error) {
-      console.error("Erreur de chargement :", error);
+      console.error('Erreur de chargement :', error)
     }
-  }
-};
+  },
+}
 </script>
-
-
