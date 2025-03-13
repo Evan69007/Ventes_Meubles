@@ -36,7 +36,7 @@ function clearCart() {
     <!-- Si le panier est vide, le bouton est désactivé -->
     <button
       @click="checkout"
-      class="w-full bg-black-600 text-white py-2 rounded mb-2 font-medium"
+      class="w-full bg-black text-white py-2 rounded mb-2 font-medium"
       :disabled="panierStore.isEmpty"
     >
       Valider le paiement
