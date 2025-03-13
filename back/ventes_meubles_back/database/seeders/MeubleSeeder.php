@@ -23,6 +23,7 @@ class MeubleSeeder extends Seeder
                 'hauteur' => $meuble['dimension']['hauteur'],
                 'largeur' => $meuble['dimension']['largeur'],
                 'profondeur' => $meuble['dimension']['profondeur'],
+				'quantite' => $meuble['quantite'],
                 'prix_ttc' => $meuble['prix_ttc'],
                 'statut' => $meuble['statut'],
                 'description' => $meuble['description'],
