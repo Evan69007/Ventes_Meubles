@@ -1,4 +1,4 @@
-<!-- components/Panier/PanierSummary.vue -->
+<!-- Affiche le résumé de la commande avec les totaux -->
 <script setup>
 import { usePanierStore } from '@/stores/panierStore'
 
@@ -14,7 +14,10 @@ const panierStore = usePanierStore()
         <span>Sous-total ({{ panierStore.totalItems }} articles)</span>
         <span>{{ panierStore.subtotal.toFixed(2) }} €</span>
       </div>
-
+      <div class="flex justify-between">
+        <span>Livraison</span>
+        <span>50.00 €</span>
+      </div>
       <div class="border-t my-2"></div>
 
       <div class="flex justify-between font-bold">

@@ -1,4 +1,4 @@
-<!-- components/Panier/PanierItem.vue -->
+<!-- Représente chaque article avec contrôles de quantité -->
 <script setup>
 import { usePanierStore } from '@/stores/panierStore'
 

@@ -1,4 +1,4 @@
-<!-- components/Panier/PanierList.vue -->
+<!-- Affiche la liste des articles-->
 <script setup>
 import PanierItem from './PanierItem.vue'
 import { usePanierStore } from '@/stores/panierStore'

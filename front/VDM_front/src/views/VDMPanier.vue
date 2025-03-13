@@ -1,4 +1,4 @@
-<!-- views/VDMPanier.vue -->
+<!-- La vue principale qui intègre tous les composants -->
 <script setup>
 import { onMounted } from 'vue'
 import PanierList from '@/components/Panier/PanierList.vue'

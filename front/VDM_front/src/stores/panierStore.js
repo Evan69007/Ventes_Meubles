@@ -1,4 +1,10 @@
-// stores/panierStore.js
+/* Store Pina gère:
+L'ajout d'articles
+La suppression d'articles
+La mise à jour des quantités
+Le calcul des sous-totaux, taxes et totaux
+La persistance dans le localStorage */
+
 import { defineStore } from 'pinia'
 
 export const usePanierStore = defineStore('panier', {
@@ -14,17 +20,17 @@ export const usePanierStore = defineStore('panier', {
         return total + item.price * item.quantity
       }, 0),
 
-    taxAmount: (state) =>
-      state.items.reduce((total, item) => {
-        return total + item.price * item.quantity * 0.2 // TVA de 20%
-      }, 0),
+    // taxAmount: (state) =>
+    //   state.items.reduce((total, item) => {
+    //     return total + item.price * item.quantity * 0.2 // TVA de 20%
+    //   }, 0),
 
     total: (state) => {
       const subtotal = state.items.reduce((total, item) => {
         return total + item.price * item.quantity
       }, 0)
-      const tax = subtotal * 0.2 // TVA de 20%
-      return subtotal + tax
+      const shipping = state.items.length > 0 ? 50.0 : 0 // Frais de livraison uniquement si le panier n'est pas vide
+      return subtotal + shipping
     },
 
     isEmpty: (state) => state.items.length === 0,
