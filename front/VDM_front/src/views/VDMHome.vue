@@ -13,13 +13,7 @@ import FooterComponent from '@/components/Footer/FooterComponent.vue'
       <!-- Affiche la liste des produits -->
     </main>
     <footer>
-      <div>
-        <FooterComponent />
-        <!-- <nav>
-          <RouterLink to="/">Home</RouterLink>
-          <RouterLink to="/about">About</RouterLink>
-        </nav> -->
-      </div>
+      <FooterComponent />
     </footer>
   </div>
 </template>
