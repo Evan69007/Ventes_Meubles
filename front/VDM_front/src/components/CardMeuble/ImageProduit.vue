@@ -1,35 +1,49 @@
 <template>
-  <!-- Si linkable est true, l’image est cliquable et redirige vers la page du produit (/product/{id}).
-       Utilisation de router-link (fourni par Vue Router) pour la navigation interne. -->
-  <router-link v-if="linkable" :to="'/product/' + productId">
+  <router-link v-if="linkable && productId" :to="'/detail/' + productId">
     <img
-      :src="src"
+      :src="imageSrc"
       :alt="alt"
       class="w-full h-60 object-cover transform hover:scale-110 transition-transform duration-300 ease-in-out"
+      @error="setDefaultImage"
     />
   </router-link>
-  <!-- Si linkable est false, l’image s’affiche sans lien.
-      Même style que l’image cliquable. -->
+
   <img
     v-else
-    :src="src"
+    :src="imageSrc"
     :alt="alt"
     class="w-full h-60 object-cover transform hover:scale-110 transition-transform duration-300 ease-in-out"
+    @error="setDefaultImage"
   />
 </template>
 
 <script>
-/* Liste des props (valeurs passées depuis cardsProduit.vue)
-src → Lien de l’image (ex: "https://exemple.com/image.jpg").
-alt → Texte alternatif affiché si l’image ne charge pas.
-productId → ID du produit (nécessaire pour générer le lien).
-linkable → Si true, l’image est cliquable (redirige vers la page du produit). */
 export default {
   props: {
     src: { type: String, required: true },
-    alt: { type: String, default: 'Image Produit' },
-    productId: { type: [Number, String], default: null },
+    alt: { type: String, default: "Image produit" },
+    productId: { type: [Number, String], required: true },
     linkable: { type: Boolean, default: true },
   },
-}
+  data() {
+    return {
+      imageSrc: this.getImagePath(this.src),
+      defaultImage: "/images/default.jpg",
+    };
+  },
+  methods: {
+    getImagePath(imageName) {
+      if (!imageName) return this.defaultImage;
+      return `/images/${imageName}`; //  public/images/ la bdd ???????????
+    },
+    setDefaultImage() {
+      this.imageSrc = this.defaultImage;
+    },
+  },
+  watch: {
+    src(newValue) {
+      this.imageSrc = this.getImagePath(newValue);
+    },
+  },
+};
 </script>

@@ -1,24 +1,3 @@
-<!-- Ce composant affiche un seul produit sous forme de carte. -->
-
-<template>
-  <div class="border p-4 flex flex-col items-center">
-    <!-- Composant pour afficher l'image -->
-    <ImageProduit :src="produit.image" :alt="produit.name" :productId="produit.id" />
-
-    <!-- Composant pour afficher le nom du produit -->
-    <NomProduit :name="produit.name" />
-
-    <!-- Affichage du prix -->
-    <p class="text-gray-500">{{ produit.price }} €</p>
-
-    <!-- Composant bouton ajouter au panier -->
-    <BoutonAjouterPanier
-      :productId="produit.id"
-      @ajout-au-panier="$emit('add-to-cart', produit.id)"
-    />
-  </div>
-</template>
-
 <script>
 import ImageProduit from '@/components/CardMeuble/ImageProduit.vue'
 import NomProduit from '@/components/CardMeuble/NomProduit.vue'
@@ -31,7 +10,35 @@ export default {
     BoutonAjouterPanier,
   },
   props: {
-    produit: Object, // Le produit est passé en tant que prop
+    produit: {
+      type: Object,
+      required: true,
+    },
   },
 }
 </script>
+<template>
+  <div class="border p-4 flex flex-col items-center">
+    <ImageProduit
+      :src="produit.photos_meuble?.principale"
+      :alt="produit.nom"
+      :productId="produit.id"
+      :linkable="true"
+    />
+
+    <NomProduit :nom="produit.nom" />
+
+    <p class="text-gray-500">{{ produit.prix_ttc }} €</p>
+    <p class="text-sm text-gray-400">{{ produit.type }} - {{ produit.etat }}</p>
+
+    <BoutonAjouterPanier
+      :productId="produit.id"
+      @ajout-au-panier="$emit('add-to-cart', produit.id)"
+    />
+  </div>
+</template>
+
+
+
+
+

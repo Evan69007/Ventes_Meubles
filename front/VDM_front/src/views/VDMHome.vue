@@ -1,5 +1,3 @@
-<!-- page d’accueil  -->
-
 <script setup>
 import cardsContainer from '@/components/CardMeuble/cardsContainer.vue' // Import du composant contenant les produits
 import Hero from '@/components/VDMHero.vue' // Import du composant contenant l'image Background
@@ -26,10 +24,4 @@ import FooterComponent from '@/components/FooterComponent.vue'
   </div>
 </template>
 
-<style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-</style>
+
