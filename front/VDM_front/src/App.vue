@@ -1,6 +1,7 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import NavBar from './components/NavBar/VDMNavBar.vue'
+import FooterComponent from '@/components/Footer/FooterComponent.vue'
 </script>
 <template>
   <RouterView />
@@ -10,6 +11,9 @@ import NavBar from './components/NavBar/VDMNavBar.vue'
       <main class="container">
         <!-- Affiche la page en fonction de la route définie dans index.js -->
       </main>
+      <footer>
+        <FooterComponent />
+      </footer>
     </div>
   </div>
 </template>

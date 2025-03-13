@@ -1,6 +1,5 @@
 <script setup>
 import DetailContainer from '@/components/Detail/DetailContainer.vue'
-import FooterComponent from '@/components/Footer/FooterComponent.vue'
 </script>
 
 <template>
@@ -8,9 +7,6 @@ import FooterComponent from '@/components/Footer/FooterComponent.vue'
     <main>
       <DetailContainer />
     </main>
-    <footer>
-      <FooterComponent />
-    </footer>
   </div>
 </template>
 
