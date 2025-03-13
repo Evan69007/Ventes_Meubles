@@ -4,6 +4,7 @@ import VDMDetail from '@/views/VDMDetail.vue'
 import VDMPanier from '@/views/VDMPanier.vue'
 import VDMConnexion from '@/views/VDMConnexion.vue'
 import VDMStock from '@/views/VDMStock.vue'
+import VDMCreationCompte from '@/views/VDMCreationCompte.vue'
 
 const routes = [
   { path: '/', component: VDMHome },
@@ -11,6 +12,7 @@ const routes = [
   { path: '/panier', component: VDMPanier },
   { path: '/connexion', component: VDMConnexion },
   { path: '/stock', component: VDMStock },
+  { path: '/creation-compte', component: VDMCreationCompte },
 ]
 
 const router = createRouter({

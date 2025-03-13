@@ -1,12 +1,30 @@
 <template>
-  <div class="connexionContainer">
-    <form method="POST" class="connexionForm">
-      <h1>Vous n'avez pas encore de compte</h1>
-      <button>Créer mon compte</button>
-      <h1>Vous avez un compte</h1>
-      <div>Entrez vos identifiants</div>
+  <div class="creationCompteContainer">
+    <form class="creationCompteForm">
       <div class="item">
-        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <label for="Prenom" class="block text-sm font-medium text-gray-700">Votre Prenom</label>
+        <input
+          type="prenom"
+          name="prenom"
+          id="prenom"
+          required
+          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+        />
+      </div>
+
+      <div class="item">
+        <label for="Nom" class="block text-sm font-medium text-gray-700">Votre Nom</label>
+        <input
+          type="nom"
+          name="nom"
+          id="nom"
+          required
+          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+        />
+      </div>
+
+      <div class="item">
+        <label for="email" class="block text-sm font-medium text-gray-700">Votre Email</label>
         <input
           type="email"
           name="email"
@@ -17,7 +35,9 @@
       </div>
 
       <div class="item">
-        <label for="password" class="block text-sm font-medium text-gray-700">Mot de passe</label>
+        <label for="password" class="block text-sm font-medium text-gray-700"
+          >Votre mot de passe</label
+        >
         <input
           type="password"
           name="password"
@@ -28,20 +48,14 @@
       </div>
 
       <div class="item flex justify-between items-center">
-        <a href="#" class="text-sm text-black hover:underline">Mot de passe oublié ?</a>
-        <button
-          type="submit"
-          class="bg-white text-black px-6 py-2 rounded-lg shadow-md hover:bg-gray-400 transition"
-        >
-          Se connecter
-        </button>
+        <button type="submit">Créer mon compte</button>
       </div>
     </form>
   </div>
 </template>
 
 <style scoped>
-.connexionContainer {
+.creationCompteContainer {
   width: 400px;
   height: fit-content;
   background: white;
@@ -52,15 +66,14 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.connexionForm {
+.creationCompteForm {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 label,
-a,
-h1 {
+a {
   font-family: 'Koulen';
 }
 
