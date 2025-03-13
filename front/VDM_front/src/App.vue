@@ -24,5 +24,3 @@ import NavBar from './components/NavBar/VDMNavBar.vue'
   padding: 20px;
 }
 </style>
-
-
