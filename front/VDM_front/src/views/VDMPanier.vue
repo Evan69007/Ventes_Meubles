@@ -1,10 +1,10 @@
-<!-- views/VDMPanier.vue -->
+<!-- La vue principale qui intègre tous les composants -->
 <script setup>
 import { onMounted } from 'vue'
 import PanierList from '@/components/Panier/PanierList.vue'
 import PanierSummary from '@/components/Panier/PanierSummary.vue'
 import PanierActions from '@/components/Panier/PanierActions.vue'
-import FooterComponent from '@/components/FooterComponent.vue'
+import FooterComponent from '@/components/Footer/FooterComponent.vue'
 import { usePanierStore } from '@/stores/panierStore'
 
 const panierStore = usePanierStore()

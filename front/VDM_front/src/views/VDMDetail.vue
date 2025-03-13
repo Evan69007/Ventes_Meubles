@@ -1,6 +1,6 @@
 <script setup>
 import DetailContainer from '@/components/Detail/DetailContainer.vue'
-import FooterComponent from '@/components/FooterComponent.vue'
+import FooterComponent from '@/components/Footer/FooterComponent.vue'
 </script>
 
 <template>

@@ -1,4 +1,4 @@
-<!-- components/Panier/PanierActions.vue -->
+<!-- Contient les boutons d'action-->
 <script setup>
 import { usePanierStore } from '@/stores/panierStore'
 import { useRouter } from 'vue-router'
