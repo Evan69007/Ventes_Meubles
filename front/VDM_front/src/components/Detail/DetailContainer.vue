@@ -1,4 +1,30 @@
-<script setup>
+<template>
+  <div v-if="produit" class="productContainer">
+    <div class="imagesContainer">
+      <DetailImages :photos="produit.photos_meuble" />
+    </div>
+    <div class="infosContainer">
+      <DetailName :nom="produit.nom" />
+      <DetailType :type="produit.type" />
+      <DetailDescription :description="produit.description" />
+      <DetailColors :couleurs="produit.couleurs" />
+      <DetailMaterials :matieres="produit.matieres" />
+      <DetailDimensions
+        :hauteur="produit.hauteur"
+        :largeur="produit.largeur"
+        :profondeur="produit.profondeur"
+      />
+      <DetailPrice :prix="produit.prix_ttc" />
+      <DetailBuyButton :produit-id="produit.id" />
+    </div>
+  </div>
+
+  <div v-else>
+    <p>Chargement des détails du produit...</p>
+  </div>
+</template>
+
+<script>
 import DetailImages from './DetailImages.vue'
 import DetailName from './DetailName.vue'
 import DetailType from './DetailType.vue'
@@ -8,28 +34,36 @@ import DetailMaterials from './DetailMaterials.vue'
 import DetailDimensions from './DetailDimensions.vue'
 import DetailPrice from './DetailPrice.vue'
 import DetailBuyButton from './DetailBuyButton.vue'
+
+export default {
+  components: {
+    DetailImages,
+    DetailName,
+    DetailType,
+    DetailDescription,
+    DetailColors,
+    DetailMaterials,
+    DetailDimensions,
+    DetailPrice,
+    DetailBuyButton,
+  },
+  data() {
+    return {
+      produit: null,
+    };
+  },
+  async mounted() {
+    const response = await fetch("/meubles_anciens.json");
+    const data = await response.json();
+    this.produit = data.find((item) => item.id == this.$route.params.id);
+  },
+};
 </script>
 
-<template>
-  <div class="productContainer">
-    <div class="imagesContainer">
-      <div><DetailImages /></div>
-    </div>
-    <div class="infosContainer">
-      <div><DetailName /></div>
-      <div><DetailType /></div>
-      <div><DetailDescription /></div>
-      <div><DetailColors /></div>
-      <div><DetailMaterials /></div>
-      <div><DetailDimensions /></div>
-      <div><DetailPrice /></div>
-      <div><DetailBuyButton /></div>
-    </div>
-  </div>
-</template>
+
 
 <style scoped>
-/* conteneur principal  2 colonnes */
+/* Conteneur principal 2 colonnes */
 .productContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -41,7 +75,7 @@ import DetailBuyButton from './DetailBuyButton.vue'
   margin-top: 10rem;
 }
 
-/* colonne images */
+/* Colonne images */
 .imagesContainer {
   display: flex;
   flex-direction: column;
@@ -49,7 +83,7 @@ import DetailBuyButton from './DetailBuyButton.vue'
   gap: 1rem;
 }
 
-/* colonne infos */
+/* Colonne infos */
 .infosContainer {
   display: flex;
   flex-direction: column;
@@ -57,10 +91,11 @@ import DetailBuyButton from './DetailBuyButton.vue'
   gap: 1rem;
 }
 
-/* responsive (mobile > 1 colonne) */
+/* Responsive (mobile > 1 colonne) */
 @media (max-width: 768px) {
   .productContainer {
     grid-template-columns: 1fr;
   }
 }
 </style>
+
