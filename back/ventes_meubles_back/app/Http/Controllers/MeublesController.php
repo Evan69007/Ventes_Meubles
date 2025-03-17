@@ -16,7 +16,7 @@ class MeublesController extends Controller
 	{
 		// Fetch all Meubles with their photos
 		$meubles = Meuble::with('photos')->get();
-
+        dd(asset("storage/photos/Table-1.png"));
 		return response()->json($meubles);
 	}
 
@@ -91,10 +91,6 @@ class MeublesController extends Controller
     public function destroy(string $id)
     {
         if(Meuble::where('id', $id)->exists()){
-            $photos = Photo::where('meubles_id', $id)->get();
-            foreach ($photos as $photo) {
-                $photo->delete();
-            }
             $meuble = Meuble::find($id);
             $meuble->delete();
             return response()->json(['message' => 'Meuble supprimé']);

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('photos', function (Blueprint $table) {
+        /* Schema::create('photos', function (Blueprint $table) {
 			$table->id()->primary();
 			$table->foreignId('meubles_id')->constrained(
 				table: 'meubles', indexName: 'id'
@@ -19,7 +19,14 @@ return new class extends Migration
 			$table->enum('type', ['principale', 'secondaire']);
 			$table->text('url');
 			$table->timestamps();
-		});
+		}); */
+        Schema::create('photos', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('meubles_id')->constrained('meubles')->onDelete('cascade');
+            $table->enum('type', ['principale', 'secondaire']);
+            $table->text('url');
+            $table->timestamps();
+        });
     }
 
     /**

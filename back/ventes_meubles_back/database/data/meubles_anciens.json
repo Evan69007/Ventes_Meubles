@@ -1,142 +1,190 @@
-{
-    "meubles": [
-        {
-            "id": 1,
-            "nom": "Buffet Louis XV",
-            "type": "Buffet",
-            "couleurs": [
-                "Bois naturel",
-                "Marron foncé"
-            ],
-            "matieres": [
-                "Chêne massif"
-            ],
-            "dimension": {
-                "hauteur": 120,
-                "largeur": 180,
-                "profondeur": 50
-            },
-            "quantite": 1,
-            "prix_ttc": 1200.0,
-            "statut": "dispo",
-            "description": "Magnifique buffet Louis XV en chêne massif, sculpté à la main.",
-            "photos": {
-                "principale": "buffet_louis_xv_1.jpg",
-                "secondaire": "buffet_louis_xv_2.jpg"
-            },
-            "etat": "parfait",
-            "date_mise_en_ligne": "2025-03-10"
-        },
-        {
-            "id": 2,
-            "nom": "Table de ferme",
-            "type": "Table",
-            "couleurs": [
-                "Brun clair"
-            ],
-            "matieres": [
-                "Hêtre",
-                "Pin"
-            ],
-            "dimension": {
-                "hauteur": 75,
-                "largeur": 200,
-                "profondeur": 90
-            },
-            "quantite": 1,
-            "prix_ttc": 850.0,
-            "statut": "réservé",
-            "description": "Table rustique idéale pour une salle à manger chaleureuse.",
-            "photos": {
-                "principale": "table_ferme_1.jpg",
-                "secondaire": "table_ferme_2.jpg"
-            },
-            "etat": "bon",
-            "date_mise_en_ligne": "2025-02-28"
-        },
-        {
-            "id": 3,
-            "nom": "Commode Art Déco",
-            "type": "Commode",
-            "couleurs": [
-                "Acajou",
-                "Doré"
-            ],
-            "matieres": [
-                "Acajou",
-                "Laiton"
-            ],
-            "dimension": {
-                "hauteur": 90,
-                "largeur": 120,
-                "profondeur": 45
-            },
-            "quantite": 1,
-            "prix_ttc": 950.0,
-            "statut": "dispo",
-            "description": "Élégante commode Art Déco avec poignées en laiton doré.",
-            "photos": {
-                "principale": "commode_art_deco_1.jpg",
-                "secondaire": "commode_art_deco_2.jpg"
-            },
-            "etat": "parfait",
-            "date_mise_en_ligne": "2025-03-01"
-        },
-        {
-            "id": 4,
-            "nom": "Chaise Napoléon III",
-            "type": "Chaise",
-            "couleurs": [
-                "Noir",
-                "Bordeaux"
-            ],
-            "matieres": [
-                "Bois",
-                "Velours"
-            ],
-            "dimension": {
-                "hauteur": 100,
-                "largeur": 45,
-                "profondeur": 40
-            },
-            "quantite": 4,
-            "prix_ttc": 120.0,
-            "statut": "vendu",
-            "description": "Chaise élégante Napoléon III, assise en velours bordeaux.",
-            "photos": {
-                "principale": "chaise_napoleon_1.jpg",
-                "secondaire": "chaise_napoleon_2.jpg"
-            },
-            "etat": "bon",
-            "date_mise_en_ligne": "2025-02-15"
-        },
-        {
-            "id": 5,
-            "nom": "Secrétaire Louis XVI",
-            "type": "Secrétaire",
-            "couleurs": [
-                "Blanc cassé",
-                "Doré"
-            ],
-            "matieres": [
-                "Bois peint",
-                "Bronze doré"
-            ],
-            "dimension": {
-                "hauteur": 150,
-                "largeur": 90,
-                "profondeur": 50
-            },
-            "quantite": 1,
-            "prix_ttc": 1750.0,
-            "statut": "dispo",
-            "description": "Secrétaire raffiné de style Louis XVI avec finitions dorées.",
-            "photos": {
-                "principale": "secretaire_louis_xvi_1.jpg",
-                "secondaire": "secretaire_louis_xvi_2.jpg"
-            },
-            "etat": "parfait",
-            "date_mise_en_ligne": "2025-03-05"
+[
+    {
+        "id": 1,
+        "nom": "Table Italienne en formica",
+        "type": "Tables ",
+        "couleurs": "Rose \r\nBlanc",
+        "matieres": "Métal et Formica\r\n",
+        "hauteur": 80,
+        "largeur": 130,
+        "profondeur": 75,
+        "quantite": 1,
+        "prix_ttc": "280.00",
+        "statut": "dispo",
+        "description": "Table en métal et Formica\r\nPieds compas en métal \r\nUn tiroir",
+        "etat": "parfait",
+        "date_mise_en_ligne": "2025-03-10",
+        "created_at": "2025-03-17T10:42:35.000000Z",
+        "updated_at": "2025-03-17T10:42:35.000000Z",
+        "photos_meuble": {
+            "principale": "Table-1.png",
+            "secondaire": [
+                "Table-2.png",
+                "Table-3.png",
+                "Table-4.png",
+                "Table-5.png"
+            ]
         }
-    ]
-}
+    },
+    {
+        "id": 2,
+        "nom": "Buffet JIROUTEK",
+        "type": "Buffet",
+        "couleurs": "Gris\r\nRose",
+        "matieres": "Pin",
+        "hauteur": 76,
+        "largeur": 200,
+        "profondeur": 90,
+        "quantite": 1,
+        "prix_ttc": "850.00",
+        "statut": "réservé",
+        "description": "Joli buffet portes coulissantes\r\nPeinture d’origine grise et rose\r\nSur les côtés du plateau restent encore la visserie qui accueillait un haut qui n’existe plus\r\nUne grande étagère intérieure\r\nUn meuble idéal pour un maximum de rangement ",
+        "etat": "bon",
+        "date_mise_en_ligne": "2025-02-28",
+        "created_at": "2025-03-17T10:42:35.000000Z",
+        "updated_at": "2025-03-17T10:42:35.000000Z",
+        "photos_meuble": {
+            "principale": "Buffet-1.png",
+            "secondaire": [
+                "Buffet-2.png",
+                "Buffet-3.png",
+                "Buffet-4.png",
+                "Buffet-5.png",
+                "Buffet-6.png",
+                "Buffet-6.png"
+            ]
+        }
+    },
+    {
+        "id": 3,
+        "nom": "Bibliothèque sur pieds",
+        "type": "Bibliotheque",
+        "couleurs": "Acajou",
+        "matieres": "Jaune \r\nVerre\r\nNoire",
+        "hauteur": 90,
+        "largeur": 120,
+        "profondeur": 45,
+        "quantite": 1,
+        "prix_ttc": "250.00",
+        "statut": "dispo",
+        "description": "Bibliothèque sur pieds attribuée à GUARICHE\r\nPériode années 50\r\nUne bibliothèque dont le fond est composé de panneaux de couleurs différentes (jaune vert et noir) et d’un miroir\r\nLes vitres ne sont pas présentes\r\n",
+        "etat": "parfait",
+        "date_mise_en_ligne": "2025-03-01",
+        "created_at": "2025-03-17T10:42:35.000000Z",
+        "updated_at": "2025-03-17T10:42:35.000000Z",
+        "photos_meuble": {
+            "principale": "Bibliotheque-1.png",
+            "secondaire": ["Bibliotheque-2.png", "Bibliotheque-3.png"]
+        }
+    },
+    {
+        "id": 4,
+        "nom": "Fauteuil Motif",
+        "type": "Fauteuil",
+        "couleurs": "Bleu, Jaune",
+        "matieres": "Bois, Tissus",
+        "hauteur": 100,
+        "largeur": 45,
+        "profondeur": 40,
+        "quantite": 2,
+        "prix_ttc": "120.00",
+        "statut": "vendu",
+        "description": "Magnifique fauteuil origine pays de l’est\r\nUn beau design\r\nLes coussins sont refaits (mousse neuves et housses avec fermeture éclair) avec un tissu très naturel style berbère\r\nConfortables et beaux\r\nassise à 43 cm\r\n",
+        "etat": "bon",
+        "date_mise_en_ligne": "2025-02-15",
+        "created_at": "2025-03-17T10:42:35.000000Z",
+        "updated_at": "2025-03-17T10:42:35.000000Z",
+        "photos_meuble": {
+            "principale": "Fauteuil-Motif-1.png",
+            "secondaire": [
+                "Fauteuil-Motif-2.png",
+                "Fauteuil-Motif-3.png",
+                "Fauteuil-Motif-4.png",
+                "Fauteuil-Motif-5.png"
+            ]
+        }
+    },
+    {
+        "id": 5,
+        "nom": "Chaise longue de jardin en rotin",
+        "type": "Chaise longue",
+        "couleurs": "Claire",
+        "matieres": "Rotin",
+        "hauteur": 150,
+        "largeur": 90,
+        "profondeur": 50,
+        "quantite": 1,
+        "prix_ttc": "540.00",
+        "statut": "dispo",
+        "description": "Grande chaise longue de jardin conçue dans les Années 80 en République tchèque",
+        "etat": "parfait",
+        "date_mise_en_ligne": "2025-03-05",
+        "created_at": "2025-03-17T10:42:35.000000Z",
+        "updated_at": "2025-03-17T10:42:35.000000Z",
+        "photos_meuble": {
+            "principale": "Meridienne-1.png",
+            "secondaire": [
+                "Meridienne-2.png",
+                "Meridienne-3.png",
+                "Meridienne-4.png",
+                "Meridienne-5.png",
+                "Meridienne-6.png",
+                "Meridienne-7.png"
+            ]
+        }
+    },
+    {
+        "id": 6,
+        "nom": "Chaise TON bicolore",
+        "type": "Chaise",
+        "couleurs": "Vert pomme\r\nMarron",
+        "matieres": "Bois",
+        "hauteur": 80,
+        "largeur": 40,
+        "profondeur": 40,
+        "quantite": 4,
+        "prix_ttc": "80.00",
+        "statut": "dispo",
+        "description": "Assise Tchèque années 60\r\nDossier en vert pomme et assise marron\r\nOriginales et confortables",
+        "etat": "parfait",
+        "date_mise_en_ligne": "2025-03-18",
+        "created_at": "2025-03-18T11:08:50.000000Z",
+        "updated_at": "2025-03-18T11:08:50.000000Z",
+        "photos_meuble": {
+            "principale": "Chaise-1.png",
+            "secondaire": [
+                "Chaise-2.png",
+                "Chaise-3.png",
+                "Chaise-4.png",
+                "Chaise-5.png"
+            ]
+        }
+    },
+    {
+        "id": 7,
+        "nom": "Miroir psyché en bambou",
+        "type": "Miroir",
+        "couleurs": "Naturel",
+        "matieres": "Bambou",
+        "hauteur": 145,
+        "largeur": 42,
+        "profondeur": 32,
+        "quantite": 1,
+        "prix_ttc": "200.00",
+        "statut": "dispo",
+        "description": "Etat parfait\r\nBonne stabilité et plusieurs positions d’inclinaison",
+        "etat": "parfait",
+        "date_mise_en_ligne": "2025-03-18",
+        "created_at": "2025-03-18T15:01:56.000000Z",
+        "updated_at": "2025-03-18T15:01:56.000000Z",
+        "photos_meuble": {
+            "principale": "Miroir-1.png",
+            "secondaire": [
+                "Miroir-2.png",
+                "Miroir-3.png",
+                "Miroir-4.png",
+                "Miroir-5.png"
+            ]
+        }
+    }
+]
