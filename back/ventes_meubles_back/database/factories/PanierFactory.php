@@ -18,7 +18,7 @@ class PanierFactory extends Factory
     public function definition(): array
     {
         return [
-            'meubles_id' => $this->faker->numberBetween(1, 5),
+            'meubles_id' => $this->faker->numberBetween(1, 6),
 			'created_at' => Carbon::now(),
         ];
     }

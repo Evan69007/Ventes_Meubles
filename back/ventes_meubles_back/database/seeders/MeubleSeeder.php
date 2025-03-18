@@ -13,24 +13,25 @@ class MeubleSeeder extends Seeder
     {
 
         $jsonData = file_get_contents(database_path('data/meubles_anciens.json'));
-        $meubles = json_decode($jsonData, true)['meubles'];
+
+        $meubles = json_decode($jsonData, true);
 
         foreach ($meubles as $meuble) {
             // Insert main furniture record
             $meubleId = DB::table('meubles')->insertGetId([
                 'nom' => $meuble['nom'],
                 'type' => $meuble['type'],
-                'hauteur' => $meuble['dimension']['hauteur'],
-                'largeur' => $meuble['dimension']['largeur'],
-                'profondeur' => $meuble['dimension']['profondeur'],
+                'hauteur' => $meuble['hauteur'],
+                'largeur' => $meuble['largeur'],
+                'profondeur' => $meuble['profondeur'],
 				'quantite' => $meuble['quantite'],
                 'prix_ttc' => $meuble['prix_ttc'],
-                'statut' => $meuble['statut'],
+                'statut' => $meuble['statut'],  
                 'description' => $meuble['description'],
                 'etat' => $meuble['etat'],
                 'date_mise_en_ligne' => $meuble['date_mise_en_ligne'],
-				'couleurs' => join(", ", $meuble['couleurs']),
-				'matieres' => join(", ", $meuble['matieres']),
+				'couleurs' =>  $meuble['couleurs'],
+				'matieres' =>  $meuble['matieres'],
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);

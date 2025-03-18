@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('paniers', function (Blueprint $table) {
             $table->id()->primary();
-			$table->foreignId('meubles_id')->constrained('meubles');
+			$table->foreignId('meubles_id')->constrained('meubles')->onDelete('cascade');
             $table->timestamps();
         });
     }
