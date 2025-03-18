@@ -10,10 +10,10 @@ const props = defineProps({
 
 <template>
   <button class="menu-button">
-    <component :is="isOpen ? ArrowIconUp : ArrowIcon" />Menu</button>
+    <component :is="isOpen ? ArrowIconUp : ArrowIcon" />
+    MENU
+  </button>
 </template>
-
-
 
 <style scoped>
 .menu-button {
