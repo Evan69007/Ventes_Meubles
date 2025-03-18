@@ -1,13 +1,13 @@
 <template>
   <div class="ajoutMeubleContainer">
-    <form class="ajoutMeubleForm">
+    <form class="ajoutMeubleForm"  @submit.prevent="submitForm">
       <div class="grid grid-cols-2 gap-6">
         <div class="item">
           <label for="nom" class="block text-sm font-medium text-gray-700">Nom du meuble</label>
           <input
             type="text"
             name="nom"
-            id="nom"
+            v-model="formData.nom"
             required
             class="w-full p-3 border border-gray-300 rounded-lg focus:ring-black focus:border-black"
           />
@@ -18,7 +18,7 @@
           <input
             type="text"
             name="type"
-            id="type"
+            v-model="formData.type"
             required
             class="w-full p-3 border border-gray-300 rounded-lg focus:ring-black focus:border-black"
           />
@@ -29,7 +29,7 @@
           <input
             type="text"
             name="couleurs"
-            id="couleurs"
+            v-model="formData.couleurs"
             required
             class="w-full p-3 border border-gray-300 rounded-lg focus:ring-black focus:border-black"
           />
@@ -40,7 +40,7 @@
           <input
             type="text"
             name="matieres"
-            id="matieres"
+            v-model="formData.matieres"
             required
             class="w-full p-3 border border-gray-300 rounded-lg focus:ring-black focus:border-black"
           />
@@ -51,7 +51,7 @@
           <input
             type="number"
             name="hauteur"
-            id="hauteur"
+            v-model="formData.hauteur"
             required
             class="w-full p-3 border border-gray-300 rounded-lg focus:ring-black focus:border-black"
           />
@@ -62,7 +62,7 @@
           <input
             type="number"
             name="largeur"
-            id="largeur"
+            v-model="formData.largeur"
             required
             class="w-full p-3 border border-gray-300 rounded-lg focus:ring-black focus:border-black"
           />
@@ -73,29 +73,38 @@
           <input
             type="number"
             name="profondeur"
-            id="profondeur"
+            v-model="formData.profondeur"
             required
             class="w-full p-3 border border-gray-300 rounded-lg focus:ring-black focus:border-black"
           />
         </div>
 
         <div class="item">
-          <label for="prix" class="block text-sm font-medium text-gray-700">Prix TTC</label>
+          <label for="prix_ttc" class="block text-sm font-medium text-gray-700">Prix TTC</label>
           <input
             type="number"
             step="0.01"
-            name="prix"
-            id="prix"
+            name="prix_ttc"
+            v-model="formData.prix_ttc"
             required
             class="w-full p-3 border border-gray-300 rounded-lg focus:ring-black focus:border-black"
           />
         </div>
-
+		<div class="item">
+          <label for="quantite" class="block text-sm font-medium text-gray-700">Quantite</label>
+          <input
+            type="text"
+            name="quantite"
+            v-model="formData.quantite"
+            required
+            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-black focus:border-black"
+          />
+        </div>
         <div class="item">
           <label for="statut" class="block text-sm font-medium text-gray-700">Statut</label>
           <select
             name="statut"
-            id="statut"
+            v-model="formData.statut"
             required
             class="w-full p-3 border border-gray-300 rounded-lg focus:ring-black focus:border-black"
           >
@@ -106,13 +115,11 @@
         </div>
 
         <div class="item">
-          <label for="description" class="block text-sm font-medium text-gray-700"
-            >Description</label
-          >
+          <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
           <input
             type="text"
             name="description"
-            id="description"
+            v-model="formData.description"
             required
             class="w-full p-3 border border-gray-300 rounded-lg focus:ring-black focus:border-black"
           />
@@ -122,24 +129,22 @@
           <label for="etat" class="block text-sm font-medium text-gray-700">Etat</label>
           <select
             name="etat"
-            id="etat"
+            v-model="formData.etat"
             required
             class="w-full p-3 border border-gray-300 rounded-lg focus:ring-black focus:border-black"
           >
-            <option value="excellent">Excellent</option>
-            <option value="satisfaisant">Satisfaisant</option>
-            <option value="bon">Bon</option>
+            <option value="parfait">parfait</option>
+            <option value="bon">bon</option>
+            <option value="mauvais">mauvais</option>
           </select>
         </div>
 
         <div class="item">
-          <label for="date" class="block text-sm font-medium text-gray-700"
-            >Date de mise en ligne</label
-          >
+          <label for="date_mise_en_ligne" class="block text-sm font-medium text-gray-700">Date de mise en ligne</label>
           <input
             type="date"
-            name="date-mise-en-ligne"
-            id="date-mise-en-ligne"
+            name="date_mise_en_ligne"
+           	v-model="formData.date_mise_en_ligne"
             required
             class="w-full p-3 border border-gray-300 rounded-lg focus:ring-black focus:border-black"
           />
@@ -199,3 +204,47 @@ button:hover {
   opacity: 0.8;
 }
 </style>
+
+
+<script>
+	import { ref, reactive } from 'vue'
+	import axios from 'axios'
+	import { useRouter } from 'vue-router'
+
+	export default {
+	setup() {
+		const router = useRouter()
+		// Define formData here as a reactive object
+		const formData = reactive({
+			nom: '',
+			type: '',
+			prix_ttc: '',
+			quantite: '',
+			etat: '',
+			date_mise_en_ligne: '',
+			statut: '',
+			matieres: '',
+			couleurs: '',
+			hauteur: '',
+			largeur: '',
+			profondeur: '',
+			description: '',
+		})
+		
+		const submitForm = async () => {
+			try {
+				// Use formData directly - it's in scope because it's defined above
+				const response = await axios.post('http://localhost:8000/api/meubles', formData)
+				if (response.data.message === 'Meuble ajoute') {
+					router.push('/')
+				}
+			} catch (error) {
+				console.error('Error:', error)
+			}
+		}
+			
+		// Return formData so it's available in the template
+		return { formData, submitForm }
+		}
+	}
+</script>

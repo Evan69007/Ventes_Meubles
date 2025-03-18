@@ -42,7 +42,7 @@ class MeublesController extends Controller
        $meuble->created_at = Carbon::now()->toDateTimeString();
        $meuble->save();
 
-       return response()->json($meuble);
+       return response()->json(['message' => 'Meuble ajoute'],200);
     }
 
     /**
@@ -79,9 +79,9 @@ class MeublesController extends Controller
             $meuble->etat = $request->etat;
             $meuble->updated_at = Carbon::now()->toDateTimeString();
             $meuble->save();
-            return response()->json($meuble);
+            return response()->json(['message' => 'Meuble modifie'],200);
         }else{
-            return response()->json(['message' => 'Panier introuvable'],404);
+            return response()->json(['message' => 'Meuble introuvable'],404);
         }
     }
 
