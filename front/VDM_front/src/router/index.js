@@ -17,7 +17,7 @@ const routes = [
   { path: '/stock', component: VDMStock },
   { path: '/creation-compte', component: VDMCreationCompte },
   { path: '/ajout-meuble', component: VDMAjoutMeuble },
-  { path: '/update-meuble', component: VDMUpdateMeuble },
+  { path: '/update-meuble/:id', component: VDMUpdateMeuble },
   { path: '/compte', component: VDMCompte },
 ]
 
