@@ -2,7 +2,7 @@
   <div class="connexionContainer">
     <form method="POST" class="connexionForm">
       <h1>Vous n'avez pas encore de compte</h1>
-      <button>Créer mon compte</button>
+      <button>Creer mon compte</button>
       <h1>Vous avez un compte</h1>
       <div>Entrez vos identifiants</div>
       <div class="item">

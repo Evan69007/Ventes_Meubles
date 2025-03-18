@@ -5,7 +5,8 @@ import StockTable from '@/components/GestionStock/StockTable.vue'
 <template>
   <div class="stock-view">
     <h1 class="title">Gestion du Stock</h1>
-    <button>Ajouter un meuble</button>
+    <router-link to="/ajout-meuble"><CartIcon />Ajouter un Meuble</router-link>>
+
     <StockTable />
   </div>
 </template>

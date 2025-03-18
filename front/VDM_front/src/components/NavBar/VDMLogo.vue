@@ -1,5 +1,5 @@
 <template>
-  <h1>ANCIENS MEUBLES POUR UNE NOUVELLE VIE</h1>
+<router-link to ="/"><h1>ANCIENS MEUBLES POUR UNE NOUVELLE VIE</h1></router-link>
 </template>
 
 <style scoped>
