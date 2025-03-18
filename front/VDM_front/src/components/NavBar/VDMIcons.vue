@@ -5,8 +5,11 @@ import CartIcon from '../icons/IconCart.vue'
 
 <template>
   <div class="icons">
-    <button><UserIcon /> Mon compte</button>
-    <button><CartIcon /> Mon panier</button>
+
+    <router-link to="/stock"><CartIcon /> Stock</router-link>
+    <router-link to="/panier"><CartIcon /> Mon panier</router-link>
+    <router-link to="/compte"><UserIcon /> Mon compte</router-link>
+    <router-link to="/connexion"><UserIcon /> Deconnexion</router-link>
   </div>
 </template>
 

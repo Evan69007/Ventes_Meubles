@@ -7,6 +7,7 @@ import VDMStock from '@/views/VDMStock.vue'
 import VDMCreationCompte from '@/views/VDMCreationCompte.vue'
 import VDMAjoutMeuble from '@/views/VDMAjoutMeuble.vue'
 import VDMUpdateMeuble from '@/views/VDMUpdateMeuble.vue'
+import VDMCompte from '@/views/VDMCompte.vue'
 
 const routes = [
   { path: '/', component: VDMHome },
@@ -16,7 +17,8 @@ const routes = [
   { path: '/stock', component: VDMStock },
   { path: '/creation-compte', component: VDMCreationCompte },
   { path: '/ajout-meuble', component: VDMAjoutMeuble },
-  { path: '/update-meuble', component: VDMUpdateMeuble },
+  { path: '/update-meuble/:id', component: VDMUpdateMeuble },
+  { path: '/compte', component: VDMCompte },
 ]
 
 const router = createRouter({

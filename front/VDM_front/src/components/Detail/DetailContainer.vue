@@ -9,6 +9,7 @@
       <DetailDescription :description="produit.description" />
       <div>Couleurs : <DetailColors :couleurs="produit.couleurs" /></div>
       <div>Matériaux : <DetailMaterials :matieres="produit.matieres" /></div>
+	  <div>Quantite: <DetailQuantite :quantite="produit.quantite"/></div>
       <DetailDimensions
         :hauteur="produit.hauteur"
         :largeur="produit.largeur"
@@ -34,6 +35,7 @@ import DetailMaterials from './DetailMaterials.vue'
 import DetailDimensions from './DetailDimensions.vue'
 import DetailPrice from './DetailPrice.vue'
 import DetailBuyButton from './DetailBuyButton.vue'
+import DetailQuantite from './DetailQuantite.vue'
 
 export default {
   components: {
@@ -46,6 +48,7 @@ export default {
     DetailDimensions,
     DetailPrice,
     DetailBuyButton,
+	DetailQuantite,
   },
   data() {
     return {
@@ -53,7 +56,7 @@ export default {
     }
   },
   async mounted() {
-    const response = await fetch('/meubles_anciens.json')
+    const response = await fetch('http://localhost:8000/api/meubles')
     const data = await response.json()
     this.produit = data.find((item) => item.id == this.$route.params.id)
   },
