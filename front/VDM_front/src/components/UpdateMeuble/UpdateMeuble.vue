@@ -257,7 +257,6 @@ button:hover {
 		const submitForm = async () => {
 			try {
 				const meubleID = route.params.id
-				console.log(formData.value);
 				const response = await axios.put(`http://localhost:8000/api/meubles/${meubleID}`, formData.value)
 				if (response.data.message === 'Meuble modifie') {
 					router.push('/')
