@@ -23,5 +23,11 @@ class DatabaseSeeder extends Seeder
 		$this->call([
 			MeubleSeeder::class,
 		]);
+        $this->call([
+			PhotoSeeder::class,
+		]);
+        $this->call([
+			PanierSeeder::class,
+		]);
     }
 }
