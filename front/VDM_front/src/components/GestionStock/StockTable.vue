@@ -14,6 +14,7 @@
           <th class="py-3 px-4 text-left">Prix TTC</th>
           <th class="py-3 px-4 text-left">Statut</th>
           <th class="py-3 px-4 text-left">État</th>
+		  <th class="py-3 px-4 text-left">Quantite</th>
           <th class="py-3 px-4 text-left">Actions</th>
         </tr>
       </thead>
@@ -33,6 +34,7 @@
           <td class="py-3 px-4">{{ meuble.prix_ttc }} €</td>
           <td class="py-3 px-4">{{ meuble.statut }}</td>
           <td class="py-3 px-4">{{ meuble.etat }}</td>
+		  <td class="py-3 px-4">{{ meuble.quantite }}</td>
           <td class="py-3 px-4 flex space-x-2">
             <router-link :to="`/update-meuble/${meuble.id}`">Modifier</router-link>
             <button @click="supprimerMeuble(meuble.id)">Supprimer</button>
@@ -46,8 +48,6 @@
 
 <script>
 import axios from 'axios'
-import { useRouter } from 'vue-router'
-
 
 export default {
 	data() {
@@ -69,7 +69,6 @@ export default {
 	},
 	setup ()
 	{
-		const router = useRouter()
 		const supprimerMeuble = async (id) => {
 			try {
 				const response = await axios.delete(`http://localhost:8000/api/meubles/${id}`)
