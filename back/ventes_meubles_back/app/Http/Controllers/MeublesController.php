@@ -16,7 +16,7 @@ class MeublesController extends Controller
 	{
 		// Fetch all Meubles with their photos
 		$meubles = Meuble::with('photos')->get();
-        dd(asset("storage/photos/Table-1.png"));
+        // dd(asset("storage/photos/Table-1.png"));
 		return response()->json($meubles);
 	}
 
@@ -57,7 +57,7 @@ class MeublesController extends Controller
         return response()->json(['message' => 'Meuble introuvable'],404);
        }
     }
-	
+
     /**
      * Update the specified resource in storage.
      */
