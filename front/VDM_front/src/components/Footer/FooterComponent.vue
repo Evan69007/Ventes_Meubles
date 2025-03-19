@@ -1,12 +1,31 @@
 <template>
-  <footer class="bottom-0 left-0 right-0 w-full bg-gray-50 shadow-sm text-brown-800 px-4 py-6">
-    <div
-      class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 max-w-7xl mx-auto"
-    >
-      <FooterDescriptif class="w-full md:w-1/4" />
-      <FooterLiens class="w-full md:w-1/4" />
-      <FooterFormNewsletter class="w-full md:w-1/4" />
-      <FooterLogoPaiement class="w-full md:w-1/4" />
+  <footer class="w-full py-6" style="border-top: 1px solid black;">
+    <div class="max-w-7xl mx-auto px-4">
+      <!-- Version mobile: tout en colonne -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Descriptif -->
+        <div>
+          <FooterDescriptif />
+        </div>
+        
+        <!-- Liens -->
+        <div>
+          <FooterLiens />
+        </div>
+        
+        <!-- Newsletter et Adresse -->
+        <div class="sm:col-span-2 lg:col-span-1">
+          <FooterFormNewsletter />
+          <div class="mt-8">
+            <FooterLogoPaiement />
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Copyright -->
+    <div class="max-w-7xl mx-auto px-4 mt-8">
+      <p class="text-sm" style="font-family: poppins; font-size: x-small;">© 2025 ANCIENS MEUBLES POUR UNE NOUVELLE VIE</p>
     </div>
   </footer>
 </template>
