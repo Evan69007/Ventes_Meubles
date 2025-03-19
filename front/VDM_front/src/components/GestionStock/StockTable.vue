@@ -1,5 +1,8 @@
 <template>
-  <div class="overflow-hidden rounded-lg shadow-lg bg-white p-4">
+	<div v-if="isLoading">
+		chargement des données...
+  	</div>
+  <div v-else class="overflow-hidden rounded-lg shadow-lg bg-white p-4">
     <table class="w-full table-auto border-collapse">
       <thead class="bg-blue-800 text-white">
         <tr>
@@ -31,37 +34,57 @@
           <td class="py-3 px-4">{{ meuble.statut }}</td>
           <td class="py-3 px-4">{{ meuble.etat }}</td>
           <td class="py-3 px-4 flex space-x-2">
-            <button>Modifier</button>
+            <router-link :to="`/update-meuble/${meuble.id}`">Modifier</router-link>
             <button @click="supprimerMeuble(meuble.id)">Supprimer</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
+  
 </template>
 
-<script setup>
-import { ref } from 'vue'
+<script>
+import axios from 'axios'
+import { useRouter } from 'vue-router'
 
-const meubles = ref([
-  {
-    id: 1,
-    nom: 'Buffet Louis XV',
-    type: 'Buffet',
-    couleurs: 'Chêne',
-    matieres: 'Bois massif',
-    hauteur: 120,
-    largeur: 180,
-    profondeur: 50,
-    prix_ttc: 1200,
-    statut: 'dispo',
-    etat: 'parfait',
-  },
-])
 
-const supprimerMeuble = (id) => {
-  meubles.value = meubles.value.filter((meuble) => meuble.id !== id)
+export default {
+	data() {
+		return {
+			isLoading: true,
+		}
+  	},
+	async mounted() {
+		this.isLoading = true;
+		try {
+			const response = await fetch('http://localhost:8000/api/meubles')
+			this.meubles = await response.json()
+		} catch (error) {
+			console.error('Erreur de chargement :', error)
+		}
+		finally {
+			this.isLoading = false;
+		}
+	},
+	setup ()
+	{
+		const router = useRouter()
+		const supprimerMeuble = async (id) => {
+			try {
+				const response = await axios.delete(`http://localhost:8000/api/meubles/${id}`)
+				if (response.data.message === 'Meuble supprimé') {
+					confirm("Meuble supprimé")
+					window.location.reload();
+				}
+			} catch (error) {
+				console.error('Error:', error)
+			}
+		}
+		return {supprimerMeuble}
+	}
 }
+
 </script>
 
 <style scoped>
