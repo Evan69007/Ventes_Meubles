@@ -23,7 +23,7 @@ const props = defineProps({
   background: none;
   border: none;
   color: black;
-  font-size: x-large;
+  font-size: medium;
   cursor: pointer;
   padding: 0;
   outline: none;
@@ -35,4 +35,10 @@ const props = defineProps({
 .menu-button:hover {
   opacity: 0.7;
 }
+
+.menu-button:focus-visible {
+  outline: 2px solid rgb(160, 160, 160);
+  outline-offset: 4px;
+}
+ 
 </style>
