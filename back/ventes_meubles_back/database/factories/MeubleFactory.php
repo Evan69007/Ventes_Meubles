@@ -22,7 +22,7 @@ class MeubleFactory extends Factory
             'hauteur' => $this->faker->numberBetween(1, 500),
             'largeur' => $this->faker->numberBetween(1, 500),
             'profondeur' => $this->faker->numberBetween(1, 300),
-			'quantite' => $thos->faker->numberBetween(1, 300),
+			'quantite' => $this->faker->numberBetween(1, 300),
             'prix_ttc' => $this->faker->randomFloat(2, 50, 2000),
             'statut' => $this->faker->randomElement(['dispo', 'réservé', 'vendu']),
             'description' => $this->faker->paragraphs(3, true),
