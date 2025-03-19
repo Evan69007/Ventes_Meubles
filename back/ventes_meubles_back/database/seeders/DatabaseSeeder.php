@@ -27,7 +27,11 @@ class DatabaseSeeder extends Seeder
 			PhotoSeeder::class,
 		]);
         $this->call([
+			UserSeeder::class,
+		]);
+        $this->call([
 			PanierSeeder::class,
 		]);
+
     }
 }

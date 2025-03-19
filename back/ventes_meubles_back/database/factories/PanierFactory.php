@@ -19,7 +19,7 @@ class PanierFactory extends Factory
     {
         return [
             'meubles_id' => $this->faker->numberBetween(1, 6),
-            'users_id' => $this->faker->numberBetween(1, 4),
+            'users_id' => $this->faker->numberBetween(1, 8),
 			'created_at' => Carbon::now(),
         ];
     }
