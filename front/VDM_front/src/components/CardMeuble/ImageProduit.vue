@@ -28,13 +28,13 @@ export default {
   data() {
     return {
       imageSrc: this.getImagePath(this.src),
-      defaultImage: "/images/default.jpg",
+      defaultImage: "storage/photos/Table-1.png",
     };
   },
   methods: {
     getImagePath(imageName) {
       if (!imageName) return this.defaultImage;
-      return `/images/${imageName}`; //  public/images/ la bdd ???????????
+      return `http://localhost:8000/storage/photos/${imageName}`;
     },
     setDefaultImage() {
       this.imageSrc = this.defaultImage;
