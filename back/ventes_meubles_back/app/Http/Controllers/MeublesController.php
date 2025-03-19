@@ -57,7 +57,7 @@ class MeublesController extends Controller
         return response()->json(['message' => 'Meuble introuvable'],404);
        }
     }
-	
+
     /**
      * Update the specified resource in storage.
      */
