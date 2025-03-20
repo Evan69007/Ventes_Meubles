@@ -2,7 +2,7 @@
     <div class="updateCompteContainer">
       <form class="updateCompteForm">
         <div class="grid grid-cols-2 gap-6">
-     
+      
       <div class="item">
         <label for="Nom" class="block text-sm font-medium text-gray-700">Mon Nom</label>
         <input
@@ -61,11 +61,10 @@
   <style scoped>
   .updateCompteContainer {
     width: 100%;
-    max-width: 800px;
+    max-width: 420px;
     background: white;
     padding: 2rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
   }
   
   .updateCompteForm {

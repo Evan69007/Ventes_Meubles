@@ -22,7 +22,7 @@ const toggleMenu = () => {
   </nav>
 
   <!-- menu en dessous de la navbar -->
-  <VDMMenu v-if="isMenuOpen" />
+  <VDMMenu :class="{ 'menu-open': isMenuOpen }" />
 </template>
 
 <style scoped>

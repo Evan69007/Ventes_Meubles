@@ -34,10 +34,12 @@ const deconnexion = async () => {
 
 <template>
   <div class="icons">
-    <router-link to="/stock"><StockIcon /><span class="hidden lg:inline" style="font-family: poppins;">Stock</span></router-link>
-    <router-link to="/panier"><CartIcon /><span class="hidden lg:inline" style="font-family: poppins;">Panier</span></router-link>
-    <router-link to="/compte"><UserIcon /><span class="hidden lg:inline" style="font-family: poppins;">Compte</span></router-link>
-    <router-link to="/connexion"><DisconnectionIcon /><span class="hidden lg:inline" style="font-family: poppins;">Deconnexion</span></router-link>
+
+    <router-link to="/stock" class"button"><StockIcon /><span class="hidden lg:inline" style="font-family: poppins;">Stock</span></router-link>
+    <router-link to="/panier" class="button"><CartIcon /><span class="hidden lg:inline" style="font-family: poppins;">Panier</span></router-link>
+    <router-link to="/compte" class="button"><UserIcon /><span class="hidden lg:inline" style="font-family: poppins;">Compte</span></router-link>
+    <router-link to="/connexion" class="button"><DisconnectionIcon /><span class="hidden lg:inline" style="font-family: poppins;">Deconnexion</span></router-link>
+
   </div>
 </template>
 
@@ -78,10 +80,19 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
+  
 }
 
-button:hover {
+button:hover,
+.button:hover {
   opacity: 0.7;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transform: scale(1.1);
+  text-decoration-color: grey;
+  
+
 }
 </style>
 

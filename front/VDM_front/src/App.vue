@@ -23,6 +23,7 @@ import FooterComponent from '@/components/Footer/FooterComponent.vue'
   display: flex;
   flex-direction: column;
   min-height: auto; /* Fait en sorte que l’application prenne toute la hauteur */
+
 }
 
 .container {
