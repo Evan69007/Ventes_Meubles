@@ -1,10 +1,13 @@
 <script setup>
 import axios from 'axios'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import UserIcon from '../icons/IconUser.vue'
 import CartIcon from '../icons/IconCart.vue'
+import { ref, onMounted, watch} from 'vue';
 
+const isConnected = ref(false);
 const router = useRouter()
+const route = useRoute()
 const deconnexion = async () => {
 	try {
 		const access_token = JSON.parse(sessionStorage.getItem('access_token'))
@@ -21,6 +24,8 @@ const deconnexion = async () => {
 			}
 		})
 		if (response.data.message === 'User disconnected') {
+			isConnected.value = false
+			sessionStorage.removeItem('access_token')
 			router.push('/connexion')
 		}
 	} catch (error) {
@@ -28,6 +33,20 @@ const deconnexion = async () => {
 	}
 }
 
+function checkConnection() {
+	isConnected.value = !!sessionStorage.getItem('access_token');
+}
+
+onMounted(() => {
+  checkConnection();
+});
+
+watch(
+  () => route.path, // Watch the route path
+  () => {
+    checkConnection(); // Call checkConnection when the route changes
+  }
+);
 </script>
 
 <template>
@@ -36,7 +55,13 @@ const deconnexion = async () => {
     <router-link to="/stock"><CartIcon /> Stock</router-link>
     <router-link to="/panier"><CartIcon /> Mon panier</router-link>
     <router-link to="/compte"><UserIcon /> Mon compte</router-link>
-    <button @click="deconnexion()"><UserIcon /> Deconnexion</button>
+	
+	<div v-if="isConnected">
+    	<button @click="deconnexion()"><UserIcon /> Deconnexion</button>
+	</div>
+	<div v-else>
+		<router-link to="/connexion"><UserIcon /> Se Connecter</router-link>
+	</div>
   </div>
 </template>
 
@@ -51,5 +76,3 @@ button:hover {
   opacity: 0.7;
 }
 </style>
-
-
