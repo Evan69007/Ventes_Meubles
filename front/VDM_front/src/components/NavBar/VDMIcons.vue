@@ -4,6 +4,8 @@ import { useRoute, useRouter } from 'vue-router'
 import UserIcon from '../icons/IconUser.vue'
 import CartIcon from '../icons/IconCart.vue'
 import { ref, onMounted, watch} from 'vue';
+import DisconnectionIcon from '../icons/IconDisconnection.vue';
+import StockIcon from '../icons/IconStock.vue'
 
 const isConnected = ref(false);
 const router = useRouter()
@@ -51,17 +53,15 @@ watch(
 
 <template>
   <div class="icons">
-
-    <router-link to="/stock"><CartIcon /> Stock</router-link>
-    <router-link to="/panier"><CartIcon /> Mon panier</router-link>
-    <router-link to="/compte"><UserIcon /> Mon compte</router-link>
-	
-	<div v-if="isConnected">
-    	<button @click="deconnexion()"><UserIcon /> Deconnexion</button>
-	</div>
-	<div v-else>
-		<router-link to="/connexion"><UserIcon /> Se Connecter</router-link>
-	</div>
+    <router-link to="/stock" class="button"><span class="hidden lg:inline" style="font-family: poppins;"><StockIcon /> Stock</span></router-link>
+    <router-link to="/panier" class="button"><span class="hidden lg:inline" style="font-family: poppins;"><CartIcon /> Mon panier</span></router-link>
+    <router-link to="/compte" class="button"><span class="hidden lg:inline" style="font-family: poppins;"><UserIcon /> Mon compte</span></router-link>
+    <div v-if="isConnected">
+        <button @click="deconnexion()" class="button"><span class="hidden lg:inline" style="font-family: poppins;"><DisconnectionIcon /> Deconnexion</span></button>
+    </div>
+    <div v-else>
+      <router-link to="/connexion" class="button"><span class="hidden lg:inline" style="font-family: poppins;"><span class="hidden lg:inline" style="font-family: poppins;"><DisconnectionIcon /> Se Connecter</span></router-link>
+    </div>
   </div>
 </template>
 
@@ -72,7 +72,46 @@ watch(
   gap: 2em;
 }
 
-button:hover {
+.icons a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: black;
+  font-family: 'Koulen', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size:small;
+}
+
+.icons a:hover {
   opacity: 0.7;
+}
+
+button {
+  font-family: 'Koulen', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  color: black;
+  font-size: x-large;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+}
+
+button:hover,
+.button:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transform: scale(1.1);
+  text-decoration-color: grey;
 }
 </style>

@@ -4,7 +4,7 @@ const emit = defineEmits(['close'])
 </script>
 
 <template>
-  <div class="menu-overlay">
+  <div class="menu-overlay" >
     <div class="menu-content">
       <div class="menu-grid">
         <!-- Colonne 1 -->
@@ -19,7 +19,7 @@ const emit = defineEmits(['close'])
 
         <!-- Colonne 2 -->
         <div>
-          <h3 class="menu-title">Achetez par matériaux</h3>
+          <h3 class="menu-title">Achetez par materiaux</h3>
           <ul class="menu-list">
             <li>Béton</li>
             <li>Tissu</li>
@@ -36,7 +36,7 @@ const emit = defineEmits(['close'])
 
         <!-- Colonne 3 -->
         <div>
-          <h3 class="menu-title">Achetez par pièce</h3>
+          <h3 class="menu-title">Achetez par piece</h3>
           <ul class="menu-list">
             <li>Toutes les pièces</li>
             <li>Fauteuil</li>
@@ -55,7 +55,7 @@ const emit = defineEmits(['close'])
 
         <!-- Colonne 4 -->
         <div>
-          <h3 class="menu-title">Achetez par pièce</h3>
+          <h3 class="menu-title">Achetez par piece</h3>
           <ul class="menu-list">
             <li>Chambre</li>
             <li>Salle à manger</li>
@@ -71,17 +71,26 @@ const emit = defineEmits(['close'])
 
 <style scoped>
 .menu-overlay {
+  display: flex;
+  opacity: 0;
+  visibility: hidden; /* Hide the overlay initially */
   position: fixed;
-  top: 80px;
+  top: 50px; /* Adjust this value as needed */
   left: 0;
   width: 100vw;
-  background-color: white;
+  height: calc(100vh - 70px); /* Adjust height to account for the top offset */
+  background-color: rgb(255, 255, 255);
   z-index: 900;
   padding: 2rem;
-  display: flex;
+  box-sizing: border-box;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.3s ease-in-out;
+  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out; /* Transition both opacity and visibility */
+}
+
+.menu-open {
+  opacity: 1;
+  visibility: visible; /* Show the overlay when the menu is open */
 }
 
 .menu-content {
@@ -100,15 +109,31 @@ const emit = defineEmits(['close'])
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  font-family: 'koulen';
+  transition: scale 0.3s ease-in-out;
+}
+.menu-title:hover {
+  scale: 1.1;
+  cursor: pointer;
+
 }
 
 .menu-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  font-family: 'poppins';
+  
+}
+.menu-list li:hover {
+  margin-bottom: 0.5rem;
+  font-family: 'poppins';
+  cursor: pointer;
+  scale: 1.1;
 }
 
 .menu-list li {
   margin-bottom: 0.5rem;
+  font-family: 'poppins';
 }
 </style>
