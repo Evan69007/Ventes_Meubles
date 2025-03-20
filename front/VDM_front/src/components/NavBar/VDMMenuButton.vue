@@ -9,7 +9,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <button class="menu-button">
+  <button class="menu-button" style="font-family: 'poppins', sans-serif;">
     <component :is="isOpen ? ArrowIconUp : ArrowIcon" />Menu</button>
 </template>
 

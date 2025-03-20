@@ -16,7 +16,7 @@
       </div>
       <!-- Colonne À propos -->
       <div>
-        <h3 class="font-bold text-lg mb-2" style="font-family: poppins;">À propos</h3>
+        <h3 class="font-bold text-lg mb-2" style="font-family: poppins;">À propos de nous</h3>
         <ul class="space-y-1" style="font-family: poppins;">
           <li><a href="#" class="text-sm">Notre histoire</a></li>
           <li><a href="#" class="text-sm">Durabilité</a></li>
@@ -41,7 +41,7 @@
         </ul>
       </div>
       <div>
-        <h3 class="font-bold text-lg mb-2" style="font-family: poppins;">À propos</h3>
+        <h3 class="font-bold text-lg mb-2" style="font-family: poppins;">À propos de nous</h3>
         <ul class="space-y-1" style="font-family: poppins;">
           <li><a href="#" class="text-sm">Notre histoire</a></li>
           <li><a href="#" class="text-sm">Durabilité</a></li>

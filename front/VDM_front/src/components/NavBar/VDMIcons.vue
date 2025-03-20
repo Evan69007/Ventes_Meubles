@@ -34,10 +34,10 @@ const deconnexion = async () => {
 
 <template>
   <div class="icons">
-    <router-link to="/stock"><StockIcon /><span class="hidden lg:inline">Stock</span></router-link>
-    <router-link to="/panier"><CartIcon /><span class="hidden lg:inline">Mon panier</span></router-link>
-    <router-link to="/compte"><UserIcon /><span class="hidden lg:inline">Mon compte</span></router-link>
-    <router-link to="/connexion"><DisconnectionIcon /><span class="hidden lg:inline">Deconnexion</span></router-link>
+    <router-link to="/stock"><StockIcon /><span class="hidden lg:inline" style="font-family: poppins;">Stock</span></router-link>
+    <router-link to="/panier"><CartIcon /><span class="hidden lg:inline" style="font-family: poppins;">Panier</span></router-link>
+    <router-link to="/compte"><UserIcon /><span class="hidden lg:inline" style="font-family: poppins;">Compte</span></router-link>
+    <router-link to="/connexion"><DisconnectionIcon /><span class="hidden lg:inline" style="font-family: poppins;">Deconnexion</span></router-link>
   </div>
 </template>
 

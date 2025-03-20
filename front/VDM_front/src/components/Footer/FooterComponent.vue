@@ -2,7 +2,7 @@
   <footer class="w-full py-6" style="border-top: 1px solid black;">
     <div class="max-w-7xl mx-auto px-4">
       <!-- Version mobile: tout en colonne -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Descriptif -->
         <div>
           <FooterDescriptif />
