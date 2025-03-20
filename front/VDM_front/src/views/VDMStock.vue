@@ -5,7 +5,7 @@ import StockTable from '@/components/GestionStock/StockTable.vue'
 <template>
   <div class="stock-view">
     <h1 class="title">Gestion du Stock</h1>
-    <router-link to="/ajout-meuble/"><CartIcon />Ajouter un Meuble</router-link>
+    <router-link to="/ajout-meuble/" class="button"><CartIcon />Ajouter un Meuble</router-link>
     <StockTable />
   </div>
 </template>
@@ -21,7 +21,7 @@ import StockTable from '@/components/GestionStock/StockTable.vue'
   font-weight: bold;
   font-family: 'Koulen';
 }
-button {
+button,.button {
   font-family: 'Koulen', sans-serif;
   font-weight: bold;
   text-transform: uppercase;
@@ -31,9 +31,8 @@ button {
   color: black;
   font-size: large;
   cursor: pointer;
-  padding: 8px 16px;
+  padding: 4px 8px;
   outline: none;
-  display: flex;
   align-items: center;
   gap: 8px;
   transition:

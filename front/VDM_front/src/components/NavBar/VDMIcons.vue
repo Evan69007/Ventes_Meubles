@@ -6,10 +6,10 @@ import CartIcon from '../icons/IconCart.vue'
 <template>
   <div class="icons">
 
-    <router-link to="/stock"><CartIcon /> Stock</router-link>
-    <router-link to="/panier"><CartIcon /> Mon panier</router-link>
-    <router-link to="/compte"><UserIcon /> Mon compte</router-link>
-    <router-link to="/connexion"><UserIcon /> Deconnexion</router-link>
+    <router-link to="/stock" class="button"><CartIcon /> Stock</router-link>
+    <router-link to="/panier" class="button"><CartIcon /> Mon panier</router-link>
+    <router-link to="/compte" class="button"><UserIcon /> Mon compte</router-link>
+    <router-link to="/connexion" class="button"><UserIcon /> Deconnexion</router-link>
   </div>
 </template>
 
@@ -34,9 +34,18 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
+  
 }
 
-button:hover {
+button:hover,
+.button:hover {
   opacity: 0.7;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transform: scale(1.1);
+  text-decoration-color: grey;
+  
+
 }
 </style>

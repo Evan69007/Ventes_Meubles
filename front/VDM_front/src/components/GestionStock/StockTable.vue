@@ -34,7 +34,7 @@
           <td class="py-3 px-4">{{ meuble.statut }}</td>
           <td class="py-3 px-4">{{ meuble.etat }}</td>
           <td class="py-3 px-4 flex space-x-2">
-            <router-link :to="`/update-meuble/${meuble.id}`">Modifier</router-link>
+            <router-link :to="`/update-meuble/${meuble.id}`" class="button">Modifier</router-link>
             <button @click="supprimerMeuble(meuble.id)">Supprimer</button>
           </td>
         </tr>
@@ -101,7 +101,8 @@ th {
   font-size: small;
 }
 
-button {
+button,
+.button {
   font-family: 'Koulen', sans-serif;
   font-weight: bold;
   text-transform: uppercase;
@@ -113,7 +114,7 @@ button {
   cursor: pointer;
   padding: 8px 16px;
   outline: none;
-  display: flex;
+  
   align-items: center;
   gap: 8px;
   transition:
@@ -121,7 +122,8 @@ button {
     opacity 0.3s;
 }
 
-button:hover {
+button:hover,
+.button:hover {
   background: gray;
   opacity: 0.8;
 }
