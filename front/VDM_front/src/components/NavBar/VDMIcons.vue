@@ -53,14 +53,14 @@ watch(
 
 <template>
   <div class="icons">
-    <router-link to="/stock" class="button"><span class="hidden lg:inline" style="font-family: poppins;"><StockIcon /> Stock</span></router-link>
-    <router-link to="/panier" class="button"><span class="hidden lg:inline" style="font-family: poppins;"><CartIcon /> Mon panier</span></router-link>
-    <router-link to="/compte" class="button"><span class="hidden lg:inline" style="font-family: poppins;"><UserIcon /> Mon compte</span></router-link>
+    <router-link to="/stock" class="button"><StockIcon /><span class="hidden lg:inline" style="font-family: poppins;"> Stock</span></router-link>
+    <router-link to="/panier" class="button"><CartIcon /><span class="hidden lg:inline" style="font-family: poppins;"> Mon panier</span></router-link>
+    <router-link to="/compte" class="button"><UserIcon /> <span class="hidden lg:inline" style="font-family: poppins;">Mon compte</span></router-link>
     <div v-if="isConnected">
-        <button @click="deconnexion()" class="button"><span class="hidden lg:inline" style="font-family: poppins;"><DisconnectionIcon /> Deconnexion</span></button>
+        <button @click="deconnexion()" class="button"><DisconnectionIcon /> <span class="hidden lg:inline" style="font-family: poppins;">Deconnexion</span></button>
     </div>
     <div v-else>
-      <router-link to="/connexion" class="button"><span class="hidden lg:inline" style="font-family: poppins;"><span class="hidden lg:inline" style="font-family: poppins;"><DisconnectionIcon /> Se Connecter</span></router-link>
+      <router-link to="/connexion" class="button"><DisconnectionIcon /> <span class="hidden lg:inline" style="font-family: poppins;">Se Connecter</span></router-link>
     </div>
   </div>
 </template>
@@ -102,7 +102,6 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
-  
 }
 
 button:hover,
@@ -114,4 +113,5 @@ button:hover,
   transform: scale(1.1);
   text-decoration-color: grey;
 }
+
 </style>
