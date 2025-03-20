@@ -1,23 +1,12 @@
 <template>
   <div class="creationCompteContainer">
-    <form class="creationCompteForm">
+    <form class="creationCompteForm" @submit.prevent="submitForm">
       <div class="item">
-        <label for="Prenom" class="block text-sm font-medium text-gray-700">Votre Prenom</label>
-        <input
-          type="prenom"
-          name="prenom"
-          id="prenom"
-          required
-          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-        />
-      </div>
-
-      <div class="item">
-        <label for="Nom" class="block text-sm font-medium text-gray-700">Votre Nom</label>
+        <label for="Nom" class="block text-sm font-medium text-gray-700">Votre Nom Complet</label>
         <input
           type="nom"
           name="nom"
-          id="nom"
+          v-model="formData.name"
           required
           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
         />
@@ -28,7 +17,7 @@
         <input
           type="email"
           name="email"
-          id="email"
+          v-model="formData.email"
           required
           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
         />
@@ -41,7 +30,7 @@
         <input
           type="password"
           name="password"
-          id="password"
+          v-model="formData.password"
           required
           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
         />
@@ -102,3 +91,35 @@ button:hover {
   opacity: 0.8;
 }
 </style>
+
+<script>
+	import { ref } from 'vue'
+	import axios from 'axios'
+	import { useRouter } from 'vue-router'
+
+	export default {
+	setup() {
+		const router = useRouter()
+		const formData = ref({
+			name: '',
+			email: '',
+			password: '',
+		})
+		
+		const submitForm = async () => {
+			try {
+				const response = await axios.post("http://localhost:8000/api/register", formData.value)
+				if (response.data.access_token) {
+					sessionStorage.setItem('access_token', JSON.stringify(response.data))
+					router.push('/')
+				}
+			} catch (error) {
+				console.error('Error:', error)
+			}
+		}
+			
+		// Return formData so it's available in the template
+		return { formData, submitForm }
+		}
+	}
+</script>

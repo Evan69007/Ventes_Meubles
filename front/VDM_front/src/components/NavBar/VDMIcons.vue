@@ -1,15 +1,45 @@
 <script setup>
+import axios from 'axios'
+import { useRouter } from 'vue-router'
 import UserIcon from '../icons/IconUser.vue'
 import CartIcon from '../icons/IconCart.vue'
+import DisconnectionIcon from '../icons/IconDisconnection.vue';
+import StockIcon from '../icons/IconStock.vue'
+
+const router = useRouter()
+const deconnexion = async () => {
+	try {
+		const access_token = JSON.parse(sessionStorage.getItem('access_token'))
+		const user = await axios.get("http://localhost:8000/api/user", {
+			headers: {
+				Authorization: `${access_token.token_type} ${access_token.access_token}`,
+				Accept: "application/json"
+			}
+		})
+		const response = await axios.post(`http://localhost:8000/api/logout`, user.data, {
+			headers: {
+				Authorization: `${access_token.token_type} ${access_token.access_token}`,
+				Accept: "application/json"
+			}
+		})
+		if (response.data.message === 'User disconnected') {
+			router.push('/connexion')
+		}
+	} catch (error) {
+		console.error('Error:', error)
+	}
+}
+
 </script>
 
 <template>
   <div class="icons">
 
-    <router-link to="/stock" class="button"><CartIcon /> Stock</router-link>
-    <router-link to="/panier" class="button"><CartIcon /> Mon panier</router-link>
-    <router-link to="/compte" class="button"><UserIcon /> Mon compte</router-link>
-    <router-link to="/connexion" class="button"><UserIcon /> Deconnexion</router-link>
+    <router-link to="/stock" class"button"><StockIcon /><span class="hidden lg:inline" style="font-family: poppins;">Stock</span></router-link>
+    <router-link to="/panier" class="button"><CartIcon /><span class="hidden lg:inline" style="font-family: poppins;">Panier</span></router-link>
+    <router-link to="/compte" class="button"><UserIcon /><span class="hidden lg:inline" style="font-family: poppins;">Compte</span></router-link>
+    <router-link to="/connexion" class="button"><DisconnectionIcon /><span class="hidden lg:inline" style="font-family: poppins;">Deconnexion</span></router-link>
+
   </div>
 </template>
 
@@ -18,6 +48,22 @@ import CartIcon from '../icons/IconCart.vue'
   display: flex;
   flex-direction: row;
   gap: 2em;
+}
+
+.icons a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: black;
+  font-family: 'Koulen', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size:small;
+}
+
+.icons a:hover {
+  opacity: 0.7;
 }
 
 button {
@@ -49,3 +95,5 @@ button:hover,
 
 }
 </style>
+
+

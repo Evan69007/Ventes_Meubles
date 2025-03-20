@@ -1,4 +1,5 @@
 <template>
+
 <router-link to ="/"><h1 class="title">ANCIENS MEUBLES POUR UNE NOUVELLE VIE</h1></router-link>
 </template>
 

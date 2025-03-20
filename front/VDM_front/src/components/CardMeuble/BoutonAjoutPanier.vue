@@ -1,6 +1,6 @@
 <template>
   <button
-    class="border px-4 py-2 mt-2 hover:bg-black hover:text-white transition-colors"
+    class=" flex justify-center border px-4 py-2 mt-2 w-full items-center" style="font-family: poppins; font-weight: normal; font-size:medium; border: 1px solid black;"
     @click="handleClick"
   >
     {{ text }}

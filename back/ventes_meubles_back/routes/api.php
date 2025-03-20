@@ -99,7 +99,6 @@ Route::middleware('auth:sanctum')->put('/user/update', function (Request $reques
 
 // Route pour la déconnexion d'un utilisateur
 Route::middleware('auth:sanctum')->post('/logout', function (Request $request) {
-    dd($request->all());
 
     // Suppression des tokens de l'utilisateur
     $request->user()->tokens()->delete();

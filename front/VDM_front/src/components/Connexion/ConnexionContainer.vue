@@ -1,8 +1,8 @@
 <template>
   <div class="connexionContainer">
-    <form method="POST" class="connexionForm">
+    <form class="connexionForm" @submit.prevent="submitForm">
       <h1>Vous n'avez pas encore de compte</h1>
-      <button>Creer mon compte</button>
+      <router-link to="/creation-compte" class="link">Creer mon compte</router-link>
       <h1>Vous avez un compte</h1>
       <div>Entrez vos identifiants</div>
       <div class="item">
@@ -10,7 +10,7 @@
         <input
           type="email"
           name="email"
-          id="email"
+          v-model="formData.email"
           required
           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
         />
@@ -21,7 +21,7 @@
         <input
           type="password"
           name="password"
-          id="password"
+          v-model="formData.password"
           required
           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
         />
@@ -50,6 +50,26 @@
   flex-direction: column;
   justify-content: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.link {
+	font-family: 'Koulen', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: white;
+  border: 1px solid black;
+  border-radius: 8px;
+  color: black;
+  font-size: large;
+  cursor: pointer;
+  padding: 8px 16px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition:
+    background 0.3s,
+    opacity 0.3s;
 }
 
 .connexionForm {
@@ -89,3 +109,34 @@ button:hover {
   opacity: 0.8;
 }
 </style>
+
+<script>
+	import { ref } from 'vue'
+	import axios from 'axios'
+	import { useRouter } from 'vue-router'
+
+	export default {
+	setup() {
+		const router = useRouter()
+		const formData = ref({
+			email: '',
+			password: '',
+		})
+		
+		const submitForm = async () => {
+			try {
+				const response = await axios.post("http://localhost:8000/api/login", formData.value)
+				if (response.data.access_token) {
+					sessionStorage.setItem('access_token', JSON.stringify(response.data))
+					router.push('/')
+				}
+			} catch (error) {
+				console.error('Error:', error)
+			}
+		}
+			
+		// Return formData so it's available in the template
+		return { formData, submitForm }
+		}
+	}
+</script>
