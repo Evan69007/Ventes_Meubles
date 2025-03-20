@@ -1,12 +1,15 @@
 <script setup>
 import axios from 'axios'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import UserIcon from '../icons/IconUser.vue'
 import CartIcon from '../icons/IconCart.vue'
+import { ref, onMounted, watch} from 'vue';
 import DisconnectionIcon from '../icons/IconDisconnection.vue';
 import StockIcon from '../icons/IconStock.vue'
 
+const isConnected = ref(false);
 const router = useRouter()
+const route = useRoute()
 const deconnexion = async () => {
 	try {
 		const access_token = JSON.parse(sessionStorage.getItem('access_token'))
@@ -23,6 +26,8 @@ const deconnexion = async () => {
 			}
 		})
 		if (response.data.message === 'User disconnected') {
+			isConnected.value = false
+			sessionStorage.removeItem('access_token')
 			router.push('/connexion')
 		}
 	} catch (error) {
@@ -30,16 +35,33 @@ const deconnexion = async () => {
 	}
 }
 
+function checkConnection() {
+	isConnected.value = !!sessionStorage.getItem('access_token');
+}
+
+onMounted(() => {
+  checkConnection();
+});
+
+watch(
+  () => route.path, // Watch the route path
+  () => {
+    checkConnection(); // Call checkConnection when the route changes
+  }
+);
 </script>
 
 <template>
   <div class="icons">
-
-    <router-link to="/stock" class="button"><StockIcon /><span class="hidden lg:inline" style="font-family: poppins;">Stock</span></router-link>
-    <router-link to="/panier" class="button"><CartIcon /><span class="hidden lg:inline" style="font-family: poppins;">Panier</span></router-link>
-    <router-link to="/compte" class="button"><UserIcon /><span class="hidden lg:inline" style="font-family: poppins;">Compte</span></router-link>
-    <router-link to="/connexion" class="button"><DisconnectionIcon /><span class="hidden lg:inline" style="font-family: poppins;">Deconnexion</span></router-link>
-
+    <router-link to="/stock" class="button"><span class="hidden lg:inline" style="font-family: poppins;"><StockIcon /> Stock</span></router-link>
+    <router-link to="/panier" class="button"><span class="hidden lg:inline" style="font-family: poppins;"><CartIcon /> Mon panier</span></router-link>
+    <router-link to="/compte" class="button"><span class="hidden lg:inline" style="font-family: poppins;"><UserIcon /> Mon compte</span></router-link>
+    <div v-if="isConnected">
+        <button @click="deconnexion()" class="button"><span class="hidden lg:inline" style="font-family: poppins;"><DisconnectionIcon /> Deconnexion</span></button>
+    </div>
+    <div v-else>
+      <router-link to="/connexion" class="button"><span class="hidden lg:inline" style="font-family: poppins;"><span class="hidden lg:inline" style="font-family: poppins;"><DisconnectionIcon /> Se Connecter</span></router-link>
+    </div>
   </div>
 </template>
 
@@ -91,9 +113,5 @@ button:hover,
   text-underline-offset: 3px;
   transform: scale(1.1);
   text-decoration-color: grey;
-  
-
 }
 </style>
-
-
