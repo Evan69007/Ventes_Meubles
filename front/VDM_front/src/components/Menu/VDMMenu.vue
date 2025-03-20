@@ -75,7 +75,7 @@ const emit = defineEmits(['close'])
   opacity: 0;
   visibility: hidden; /* Hide the overlay initially */
   position: fixed;
-  top: 70px; /* Adjust this value as needed */
+  top: 50px; /* Adjust this value as needed */
   left: 0;
   width: 100vw;
   height: calc(100vh - 70px); /* Adjust height to account for the top offset */

@@ -1,6 +1,10 @@
 <template>
 
-<router-link to ="/"><h1 class="title">ANCIENS MEUBLES POUR UNE NOUVELLE VIE</h1></router-link>
+<router-link to ="/">
+<h1 class="title text-black text-base md:text-xl lg:text-2xl">
+<span class="lg:hidden">AMPNV</span>
+<span class="hidden lg:inline">ANCIENS MEUBLES POUR UNE NOUVELLE VIE</span></h1>
+</router-link>
 </template>
 
 <style scoped>
@@ -9,7 +13,7 @@
   font-family: 'Koulen', sans-serif;
   text-transform: uppercase; 
   color: black; 
-  font-size: xx-large; 
+ 
   display: inline-block; /* Ensures the underline only spans the text */
   position: relative;
   text-decoration: none; /* Remove default underline */
