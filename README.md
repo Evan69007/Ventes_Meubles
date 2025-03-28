@@ -18,13 +18,6 @@
 
 📌 **Plateforme de gestion d’un magasin de meubles** sur lequel des utilisateurs (admin) interagissent avec le **stock** et des utilisateurs (clients) **s'inscrivent et se connectent.**
 
-📌 **Le projet est divisé en plusieurs parties :**
-
- - ✅ L’affichage d’une page principale affichant tous les meubles
- - ✅ Détail d'un meuble avec photos et caractéristiques                
- - ✅ Gestion du stock pour l'administrateur                              
- - ✅ Inscription, connexion et deconnexion des utilisateurs  
-
 ##  **Screen du projet** :
 
 <div style="display: flex; justify-content: space-around;">
