@@ -76,7 +76,7 @@
 
 ## **Installation**: 
 
-📌Cloner le dépôt ou télécharger les fichiers du projet : git@github.com:Evan69007/Ventes_Meubles.git
+📌**Cloner le dépôt** :git@github.com:Evan69007/Ventes_Meubles.git **ou télécharger les fichiers du projet** : https://github.com/Evan69007/Ventes_Meubles.git
 
 <details>
   <summary> 📌Back: Cliquez ici pour voir le contenu  </summary>
