@@ -61,7 +61,7 @@
 - Ajout/Modification des photos de meubles  
 
 
-## **Stack Technique**: 
+## **Prérequis et Stack Technique**: 
 
 - **Back-end** : Laravel (PHP) 
 - **Front-end** : Vue.js (JavaScript), Tailwind (CSS) 
