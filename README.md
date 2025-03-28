@@ -342,9 +342,9 @@ Si nécessaire, installez-les depuis nodejs.org.
 
 ### **Organisation des équipes**
 
-👨‍💻 **Semaine 1** : Une équipe sur le front, une autre sur le back
+👨‍💻 **Semaine 1 (4 jours)** : Une équipe sur le front, une autre sur le back
 
-🔄 **Mi-parcours** : Inversion des équipes
+🔄 **Semaine 2 (3 jours - Demo (Jour 4)** : Inversion des équipes
 
 📌 **Documentation** : Nomenclature commune, Postman pour tester l'API, repositorie commun
   
